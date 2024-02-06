@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "612372775315",
+    "project_id": "logintest-8baaf",
+    "storage_bucket": "logintest-8baaf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612372775315:android:b5b76023e553f07d8f6866",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s6kCupZz9GMaOuKRIxP6-eEvuvI3Jnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
