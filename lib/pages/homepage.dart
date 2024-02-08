@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:login/pages/homescreen.dart';
+import 'package:login/pages/searchscreen.dart';
+import 'package:login/pages/settings_screen.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -13,9 +16,9 @@ class HomePage extends StatefulWidget {
   }
 
   final List<Widget> _widgetOptions = <Widget>[
-    Text('home'), //TODO: Set screens
-    Text('search'),
-    Text('settings'),
+    HomeScreen(), //TODO: Set screens
+    SearchScreen(),
+    SettingsScreen(),
   ];
 
   @override
@@ -49,9 +52,9 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             activeColor: Colors.white,
             tabBackgroundColor: Colors.grey.shade900,
-            padding: EdgeInsets.all(18),
+            padding: const EdgeInsets.all(18),
             gap: 5,
-            tabs: [
+            tabs: const  [
               GButton(icon: Icons.home, text: 'Home'),
               GButton(icon: Icons.search, text: 'Search'),
               GButton(icon: Icons.settings, text: 'Settings')
