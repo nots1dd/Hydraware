@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login/pages/loginpage.dart';
-import 'package:login/pages/register.dart';
+import 'package:hydraware/pages/loginpage.dart';
+import 'package:hydraware/pages/register.dart';
 
 class AuthMiddle extends StatefulWidget {
   const AuthMiddle({super.key});

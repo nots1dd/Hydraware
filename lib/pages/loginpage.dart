@@ -2,10 +2,10 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:login/components/button.dart';
-import 'package:login/components/squaretile.dart';
-import 'package:login/components/textfield.dart';
-import 'package:login/services/authservice.dart';
+import 'package:hydraware/components/button.dart';
+import 'package:hydraware/components/squaretile.dart';
+import 'package:hydraware/components/textfield.dart';
+import 'package:hydraware/services/authservice.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 20),
-                const Icon(Icons.lock, size: 100),
+                Icon(Icons.lock, size: 90,color: Theme.of(context).colorScheme.tertiary,), //TODO: Change logo to Hydraware logo
                 const SizedBox(height: 40),
                 Text('Welcome back!', style: TextStyle(color: Colors.blue[300],fontSize: 16)),
                 const SizedBox(height: 25),
@@ -160,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
                           'Or continue with',
-                          style: TextStyle(color: Colors.grey[700]),),
+                          style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold),),
                       ),
                       Expanded(child: Divider(thickness: 0.75,color: Colors.grey[550],))
                     ],
@@ -180,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                    Text('Not a member?',style: TextStyle(color: Colors.grey[700])),
+                    Text('Not a member?',style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold)),
                     const SizedBox(width: 10,),
                     GestureDetector(
                       onTap: widget.onTap,

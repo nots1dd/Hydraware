@@ -2,10 +2,10 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:login/components/button.dart';
-import 'package:login/components/squaretile.dart';
-import 'package:login/components/textfield.dart';
-import 'package:login/services/authservice.dart';
+import 'package:hydraware/components/button.dart';
+import 'package:hydraware/components/squaretile.dart';
+import 'package:hydraware/components/textfield.dart';
+import 'package:hydraware/services/authservice.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -31,13 +31,13 @@ class RegisterPage extends StatefulWidget {
           width: 30,
           height: 40,
           decoration: BoxDecoration(
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.tertiary,
             borderRadius: BorderRadius.circular(8),),
         child: Center(
           child: FittedBox(
             fit: BoxFit.fitWidth,
-            child: Text(message, style: const TextStyle(
-              color: Colors.grey,
+            child: Text(message, style: TextStyle(
+              color: Theme.of(context).colorScheme.secondary,
               fontSize: 16)),
           ),
         ),
@@ -83,7 +83,7 @@ class RegisterPage extends StatefulWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -91,7 +91,7 @@ class RegisterPage extends StatefulWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 20),
-                const Icon(Icons.lock, size: 100),
+                Icon(Icons.lock, size: 90,color: Theme.of(context).colorScheme.tertiary,),
                 const SizedBox(height: 30),
                 Text('Welcome to this!', style: TextStyle(color: Colors.blue[300],fontSize: 16)),
                 const SizedBox(height: 25),
@@ -116,7 +116,7 @@ class RegisterPage extends StatefulWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
                           'Or continue with',
-                          style: TextStyle(color: Colors.grey[700]),),
+                          style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold),),
                       ),
                       Expanded(child: Divider(thickness: 0.75,color: Colors.grey[550],))
                     ],
@@ -136,7 +136,7 @@ class RegisterPage extends StatefulWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                    Text('Already a member?',style: TextStyle(color: Colors.grey[700])),
+                    Text('Already a member?',style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold)),
                     const SizedBox(width: 10,),
                     GestureDetector(
                       onTap: widget.onTap,

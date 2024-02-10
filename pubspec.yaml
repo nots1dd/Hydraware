@@ -1,4 +1,4 @@
-name: login
+name: hydraware
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -39,6 +39,7 @@ dependencies:
   firebase_auth: ^4.17.3
   google_sign_in: ^6.2.1
   google_nav_bar: ^5.0.6
+  provider: 
 
 dev_dependencies:
   flutter_test:

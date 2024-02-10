@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:login/pages/homescreen.dart';
-import 'package:login/pages/searchscreen.dart';
-import 'package:login/pages/settings_screen.dart';
+import 'package:hydraware/pages/homescreen.dart';
+import 'package:hydraware/pages/searchscreen.dart';
+import 'package:hydraware/pages/settings_screen.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -29,26 +29,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text("Welcome",style: TextStyle(color: Colors.white),),
-        actions: [
-          IconButton(
-            onPressed: widget.signUserOut,
-            icon: const Icon(Icons.logout, color: Colors.white),
-          )
-        ],
+        title: Center(child: Text("Hydraware",style: TextStyle(color: Theme.of(context).colorScheme.tertiary))),
       ),
       body: Center(
         child: widget._widgetOptions.elementAt(widget._selectedIndex),
       ),
       bottomNavigationBar: Container(
-        color: Colors.black,
+        color: Theme.of(context).colorScheme.background,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 11.0, vertical: 15.0),
           child: GNav(
             haptic: true,
-            backgroundColor: Colors.black,
+            backgroundColor: Theme.of(context).colorScheme.background,
             color: Colors.white,
             activeColor: Colors.white,
             tabBackgroundColor: Colors.grey.shade900,
