@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hydraware/pages/authpage.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:hydraware/pages/introduction_screen.dart';
 import 'package:hydraware/pages/settings_screen.dart';
 import 'package:hydraware/pages/settings_screens/license.dart';
 import 'package:hydraware/pages/settings_screens/privacy_policy.dart';
@@ -28,12 +29,13 @@ class MyApp extends StatelessWidget {
         '/privacy': (BuildContext context) => const  PrivacyPolicy(),
         '/license': (BuildContext context) => const License(),
         '/theme': (BuildContext context) => const ThemePage(),
-        '/home': (BuildContext context) => SettingsScreen(),
+        '/settings': (BuildContext context) => SettingsScreen(),
         '/profile': (BuildContext context) => Profile(),
+        '/login': (BuildContext context) => const AuthPage(),
       },
       theme: Provider.of<ThemeProvider>(context).getTheme,
       debugShowCheckedModeBanner: false,
-      home: const AuthPage(),
+      home: const IntroScreen(),
     );
   }
 }

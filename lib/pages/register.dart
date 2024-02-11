@@ -6,6 +6,7 @@ import 'package:hydraware/components/button.dart';
 import 'package:hydraware/components/squaretile.dart';
 import 'package:hydraware/components/textfield.dart';
 import 'package:hydraware/services/authservice.dart';
+import 'package:lottie/lottie.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -58,15 +59,15 @@ class RegisterPage extends StatefulWidget {
       },
     );
     try {
-       if(passwordController.text != confirmpasswordController.text) {
+       if(passwordController.text.trim() != confirmpasswordController.text.trim()) {
         Navigator.pop(context);
         invalidAuth("Password do not match");
       return;
     }
-      if (passwordController.text == confirmpasswordController.text) { //TODO: check for mail domains thru regex (any domain is able to login now)
+      if (passwordController.text.trim() == confirmpasswordController.text.trim()) { //TODO: check for mail domains thru regex (any domain is able to login now)
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text, 
-        password: passwordController.text
+        email: emailController.text.trim(), 
+        password: passwordController.text.trim()
         );
       } else {
         invalidAuth('Passwords do not match');
@@ -90,10 +91,14 @@ class RegisterPage extends StatefulWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const SizedBox(height: 10),
+                GestureDetector(
+                  onTap: () => {
+                    Navigator.pushNamed(context, '/')
+                  },
+                  child: Lottie.asset('lib/images/Hydraware_animation_2.json', width: 130, height: 130)),
                 const SizedBox(height: 20),
-                Icon(Icons.lock, size: 90,color: Theme.of(context).colorScheme.tertiary,),
-                const SizedBox(height: 30),
-                Text('Welcome to this!', style: TextStyle(color: Colors.blue[300],fontSize: 16)),
+                Text('Welcome to Hydraware!', style: TextStyle(color: Colors.blue[300],fontSize: 16,fontWeight: FontWeight.bold)),
                 const SizedBox(height: 25),
                 MyTextField(controller: emailController,hintText: 'Enter mail ID',obscureText: false,),
                 const SizedBox(height: 10),

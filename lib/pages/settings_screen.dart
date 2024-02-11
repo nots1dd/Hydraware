@@ -74,6 +74,20 @@ class SettingsScreen extends StatelessWidget {
                           fontSize: 21,
                           fontWeight: FontWeight.bold),),
                     ),
+                const SizedBox(height: 10),
+                Divider(thickness: 0.75,color: Theme.of(context).colorScheme.secondary,),
+                const SizedBox(height: 10),
+                GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/');
+                      },
+                      child: const Text(
+                        'About',
+                        style: TextStyle(
+                          color: Colors.lightBlue,
+                          fontSize: 21,
+                          fontWeight: FontWeight.bold),),
+                    ),
                 const SizedBox(height: 50),
                 MyButton(onTap: signUserOut, text: 'Sign Out'),
               ],

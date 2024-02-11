@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Center(child: Text("Hydraware",style: TextStyle(color: Theme.of(context).colorScheme.tertiary))),
       ),
       body: Center(

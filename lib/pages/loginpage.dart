@@ -3,9 +3,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hydraware/components/button.dart';
+import 'package:hydraware/components/pwdtextfield.dart';
 import 'package:hydraware/components/squaretile.dart';
 import 'package:hydraware/components/textfield.dart';
 import 'package:hydraware/services/authservice.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -16,8 +18,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  //final PwdTextField passwordController = PwdTextField();
   final emailController = TextEditingController();
-
   final passwordController = TextEditingController();
 
   void signUserIn() async {
@@ -31,8 +33,8 @@ class _LoginPageState extends State<LoginPage> {
     );
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text, 
-        password: passwordController.text
+        email: emailController.text.trim(), 
+        password: passwordController.text.trim()
       );
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
@@ -47,7 +49,6 @@ class _LoginPageState extends State<LoginPage> {
         invalidAuth();
       }
     }
-
   }
 
   void wrongEmailMsg() {
@@ -59,11 +60,11 @@ class _LoginPageState extends State<LoginPage> {
           width: 20,
           height: 35,
           decoration: BoxDecoration(
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.tertiary,
             borderRadius: BorderRadius.circular(8),),
-        child: const Center(
-          child: Text('Invalid email', style: TextStyle(
-            color: Colors.grey,
+        child: Center(
+          child: Text('Email invalid or unregistered!', style: TextStyle(
+            color: Theme.of(context).colorScheme.secondary,
             fontSize: 16)),
         ),
         ),
@@ -81,11 +82,11 @@ class _LoginPageState extends State<LoginPage> {
           width: 20,
           height: 35,
           decoration: BoxDecoration(
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.tertiary,
             borderRadius: BorderRadius.circular(8),),
-        child: const Center(
+        child: Center(
           child: Text('Invalid password!', style: TextStyle(
-            color: Colors.grey,
+            color: Theme.of(context).colorScheme.secondary,
             fontSize: 16)),
         ),
         ),
@@ -103,11 +104,11 @@ class _LoginPageState extends State<LoginPage> {
           width: 20,
           height: 35,
           decoration: BoxDecoration(
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.tertiary,
             borderRadius: BorderRadius.circular(8),),
-        child: const Center(
-          child: Text('Invalid credentials! Try again!!', style: TextStyle(
-            color: Colors.grey,
+        child: Center(
+          child: Text('Something went wrong! Try again!!', style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
             fontSize: 16)),
         ),
         ),
@@ -126,14 +127,19 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 20),
-                Icon(Icons.lock, size: 90,color: Theme.of(context).colorScheme.tertiary,), //TODO: Change logo to Hydraware logo
-                const SizedBox(height: 40),
-                Text('Welcome back!', style: TextStyle(color: Colors.blue[300],fontSize: 16)),
+                const SizedBox(height: 15),
+                GestureDetector(
+                  onTap: () => {
+                    Navigator.pushNamed(context, '/')
+                  },
+                  child: Lottie.asset('lib/images/Hydraware_animation_2.json', width: 140, height: 140)), //TODO: Change logo to Hydraware logo
+                const SizedBox(height: 30),
+                Text('Welcome back!', style: TextStyle(color: Colors.blue[300],fontSize: 16,fontWeight: FontWeight.bold )),
                 const SizedBox(height: 25),
                 MyTextField(controller: emailController,hintText: 'Enter mail ID',obscureText: false,),
                 const SizedBox(height: 10),
                 MyTextField(controller: passwordController,hintText: 'Enter password',obscureText: true,), //textfield.dart for config
+                
                 const SizedBox(height: 10),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
@@ -150,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 MyButton(onTap: signUserIn, text: 'Sign In!',),
             
-                const SizedBox(height: 50,),
+                const SizedBox(height: 40,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
