@@ -22,7 +22,6 @@ class MyTextField extends StatelessWidget {
                     fillColor: Theme.of(context).colorScheme.secondary,
                     filled: true,
                     hintText: hintText,
-                    hintStyle: TextStyle(color: Colors.grey[500])
                   ),
                   style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
                 ),

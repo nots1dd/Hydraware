@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hydraware/components/button.dart';
+import 'package:hydraware/components/pwdtextfield.dart';
 import 'package:hydraware/components/squaretile.dart';
 import 'package:hydraware/components/textfield.dart';
 import 'package:hydraware/services/authservice.dart';
@@ -21,6 +22,7 @@ class RegisterPage extends StatefulWidget {
 
   final passwordController = TextEditingController();
   final confirmpasswordController = TextEditingController();
+  bool isPassword = true;
 
   void invalidAuth(String message) {
 
@@ -49,6 +51,13 @@ class RegisterPage extends StatefulWidget {
         );
   }
 
+  void mailCheck() {
+    RegExp regExp = RegExp(r"@(?:gmail|yahoo|hotmail)\.com$");
+    if (regExp.hasMatch(emailController.text.trim()) == false){
+      invalidAuth('Please enter a mail ID');
+    }
+  }
+
   void signUserUp() async {
     showDialog(
       context: context, 
@@ -59,9 +68,15 @@ class RegisterPage extends StatefulWidget {
       },
     );
     try {
+      RegExp regExp = RegExp(r"@(?:gmail|yahoo|hotmail)\.com$");
+      if (regExp.hasMatch(emailController.text.trim()) == false){
+      Navigator.pop(context);
+      invalidAuth('Please enter a mail ID');
+      return;
+      }
        if(passwordController.text.trim() != confirmpasswordController.text.trim()) {
         Navigator.pop(context);
-        invalidAuth("Password do not match");
+        invalidAuth("Passwords do not match");
       return;
     }
       if (passwordController.text.trim() == confirmpasswordController.text.trim()) { //TODO: check for mail domains thru regex (any domain is able to login now)
@@ -102,9 +117,9 @@ class RegisterPage extends StatefulWidget {
                 const SizedBox(height: 25),
                 MyTextField(controller: emailController,hintText: 'Enter mail ID',obscureText: false,),
                 const SizedBox(height: 10),
-                MyTextField(controller: passwordController,hintText: 'Enter password',obscureText: true,), //textfield.dart for config
+                pwdTextField(controller: passwordController, hintText: 'Enter your password', isPassword: isPassword), //textfield.dart for config
                 const SizedBox(height: 10),
-                MyTextField(controller: confirmpasswordController, hintText: 'Confirm password', obscureText: true),
+                pwdTextField(controller: confirmpasswordController, hintText: 'Confirm password', isPassword: isPassword),
                 const SizedBox(height: 10),
             
                 const SizedBox(height: 25,),

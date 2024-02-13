@@ -11,9 +11,6 @@ class HomePage extends StatefulWidget {
   final user = FirebaseAuth.instance.currentUser!;
   int _selectedIndex = 0;
 
-  void signUserOut() {
-    FirebaseAuth.instance.signOut();
-  }
 
   final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(), //TODO: Set screens

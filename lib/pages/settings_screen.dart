@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hydraware/components/button.dart';
-import 'package:hydraware/pages/settings_screens/theme/theme_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:hydraware/pages/settings_screens/theme.dart';
 
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({super.key});
   final user = FirebaseAuth.instance.currentUser!;
+
 
   void signUserOut() {
     FirebaseAuth.instance.signOut();
@@ -49,17 +49,7 @@ class SettingsScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 Divider(thickness: 0.75,color: Theme.of(context).colorScheme.secondary,),
                 const SizedBox(height: 10),
-                GestureDetector(
-                      onTap: () {
-                          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-                      }, 
-                      child: const Text(
-                        'Change Theme',
-                        style: TextStyle(
-                          color: Colors.lightBlue,
-                          fontSize: 21,
-                          fontWeight: FontWeight.bold),),
-                    ),
+                const ThemePage(),
                 const SizedBox(height: 10),
                 Divider(thickness: 0.75,color: Theme.of(context).colorScheme.secondary,),
                 const SizedBox(height: 10),

@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   //final PwdTextField passwordController = PwdTextField();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool isPassword = true;
 
   void signUserIn() async {
     showDialog(
@@ -138,7 +139,8 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 25),
                 MyTextField(controller: emailController,hintText: 'Enter mail ID',obscureText: false,),
                 const SizedBox(height: 10),
-                MyTextField(controller: passwordController,hintText: 'Enter password',obscureText: true,), //textfield.dart for config
+                //MyTextField(controller: passwordController,hintText: 'Enter password',obscureText: true,), //textfield.dart for config
+                pwdTextField(controller: passwordController, hintText: 'Enter Password', isPassword: isPassword), //pwdtextfield.dart for config
                 
                 const SizedBox(height: 10),
                 const Padding(
@@ -154,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
             
                 const SizedBox(height: 25,),
 
-                MyButton(onTap: signUserIn, text: 'Sign In!',),
+                MyButton(onTap: signUserIn, text: 'Log In!',),
             
                 const SizedBox(height: 40,),
                 Padding(

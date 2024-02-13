@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hydraware/pages/settings_screens/privacy_policy_string.dart';
 
 class PrivacyPolicy extends StatelessWidget {
   const PrivacyPolicy({super.key});
@@ -19,14 +20,14 @@ class PrivacyPolicy extends StatelessWidget {
           )
         ],
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
             child: Column(
               children: [
-                SizedBox(height: 30),
-                Text('Privacy Policy', style: TextStyle(
-                  fontSize: 30)),
+                const SizedBox(height: 30),
+                Text(privacyPolicy, style: const TextStyle(
+                  fontSize: 13,fontWeight: FontWeight.bold)),
               ],
             ),
           ),
