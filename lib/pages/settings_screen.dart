@@ -49,10 +49,6 @@ class SettingsScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 Divider(thickness: 0.75,color: Theme.of(context).colorScheme.secondary,),
                 const SizedBox(height: 10),
-                const ThemePage(),
-                const SizedBox(height: 10),
-                Divider(thickness: 0.75,color: Theme.of(context).colorScheme.secondary,),
-                const SizedBox(height: 10),
                 GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context, '/profile');
@@ -80,6 +76,14 @@ class SettingsScreen extends StatelessWidget {
                     ),
                 const SizedBox(height: 50),
                 MyButton(onTap: signUserOut, text: 'Sign Out'),
+                const SizedBox(height: 50),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Change Theme:', style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold,fontSize: 19),),
+                    const ThemePage(height: 60,width: 100,),
+                  ],
+                ),
               ],
           ),
         ),

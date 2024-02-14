@@ -29,7 +29,15 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Center(child: Text("Hydraware",style: TextStyle(color: Theme.of(context).colorScheme.tertiary))),
+        title:  Text("Hydraware",style: TextStyle(color: Theme.of(context).colorScheme.tertiary)),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+            icon: Icon(Icons.account_circle_outlined,color: Theme.of(context).colorScheme.tertiary,),
+          )
+        ],
       ),
       body: Center(
         child: widget._widgetOptions.elementAt(widget._selectedIndex),
