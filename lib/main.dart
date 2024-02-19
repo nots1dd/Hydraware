@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:hydraware/consts/apikeys.dart';
 import 'package:hydraware/pages/authpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hydraware/pages/introduction_screen.dart';
+import 'package:hydraware/pages/search_screens/chat_screen.dart';
 import 'package:hydraware/pages/settings_screen.dart';
 import 'package:hydraware/pages/settings_screens/license.dart';
 import 'package:hydraware/pages/settings_screens/privacy_policy.dart';
@@ -11,7 +14,8 @@ import 'package:hydraware/pages/settings_screens/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
-void main() async {
+Future main() async {
+  Gemini.init(apiKey: GEMINI_API_KEY_2);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(ChangeNotifierProvider(create: (context) => ThemeProvider(), child: const MyApp()));
@@ -32,6 +36,7 @@ class MyApp extends StatelessWidget {
         '/settings': (BuildContext context) => SettingsScreen(),
         '/profile': (BuildContext context) => Profile(),
         '/login': (BuildContext context) => const AuthPage(),
+        '/chat': (BuildContext context) => const ChatScreen(),
       },
       theme: Provider.of<ThemeProvider>(context).getTheme,
       debugShowCheckedModeBanner: false,

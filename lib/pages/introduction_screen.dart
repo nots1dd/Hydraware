@@ -30,14 +30,14 @@ class _IntroScreenState extends State<IntroScreen> {
                 }
               });
             },
-            children: [
+            children: const [
               ScreenA(),
               ScreenB(),
               ScreenC(),
             ],
           ),
           Container(
-            alignment: Alignment(0,0.8),
+            alignment: const Alignment(0,0.8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

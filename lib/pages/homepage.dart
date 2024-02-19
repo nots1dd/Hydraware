@@ -13,8 +13,8 @@ class HomePage extends StatefulWidget {
 
 
   final List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(), //TODO: Set screens
-    SearchScreen(),
+    const HomeScreen(), //TODO: Set screens
+    const SearchScreen(),
     SettingsScreen(),
   ];
 
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             activeColor: Colors.white,
             tabBackgroundColor: Colors.grey.shade900,
-            padding: const EdgeInsets.all(18),
+            padding: const EdgeInsets.all(10),
             gap: 5,
             tabs: const  [
               GButton(icon: Icons.home, text: 'Home'),

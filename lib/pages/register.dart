@@ -1,5 +1,3 @@
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hydraware/components/button.dart';
@@ -51,13 +49,6 @@ class RegisterPage extends StatefulWidget {
         );
   }
 
-  void mailCheck() {
-    RegExp regExp = RegExp(r"@(?:gmail|yahoo|hotmail)\.com$");
-    if (regExp.hasMatch(emailController.text.trim()) == false){
-      invalidAuth('Please enter a mail ID');
-    }
-  }
-
   void signUserUp() async {
     showDialog(
       context: context, 
@@ -68,10 +59,10 @@ class RegisterPage extends StatefulWidget {
       },
     );
     try {
-      RegExp regExp = RegExp(r"@(?:gmail|yahoo|hotmail)\.com$");
+      RegExp regExp = RegExp(r"@(?:gmail|yahoo|hotmail|outlook)\.com$");
       if (regExp.hasMatch(emailController.text.trim()) == false){
       Navigator.pop(context);
-      invalidAuth('Please enter a mail ID');
+      invalidAuth('Please enter a valid mail ID!');
       return;
       }
        if(passwordController.text.trim() != confirmpasswordController.text.trim()) {
@@ -79,7 +70,7 @@ class RegisterPage extends StatefulWidget {
         invalidAuth("Passwords do not match");
       return;
     }
-      if (passwordController.text.trim() == confirmpasswordController.text.trim()) { //TODO: check for mail domains thru regex (any domain is able to login now)
+      if (passwordController.text.trim() == confirmpasswordController.text.trim()) { 
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(), 
         password: passwordController.text.trim()
@@ -111,7 +102,7 @@ class RegisterPage extends StatefulWidget {
                   onTap: () => {
                     Navigator.pushNamed(context, '/')
                   },
-                  child: Lottie.asset('lib/images/Hydraware_animation_2.json', width: 130, height: 130)),
+                  child: Lottie.asset('assets/images/Hydraware_animation_2.json', width: 130, height: 130)),
                 const SizedBox(height: 20),
                 Text('Welcome to Hydraware!', style: TextStyle(color: Colors.blue[300],fontSize: 16,fontWeight: FontWeight.bold)),
                 const SizedBox(height: 25),
@@ -147,9 +138,9 @@ class RegisterPage extends StatefulWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  SquareTile(imagepath: 'lib/images/google.png', onTap: () => AuthService().signInWithGoogle(),),
+                  SquareTile(imagepath: 'assets/images/google.png', onTap: () => AuthService().signInWithGoogle(),),
                   const SizedBox( width: 25,),
-                  SquareTile(imagepath: 'lib/images/apple.png',onTap: () {},),]),
+                  SquareTile(imagepath: 'assets/images/apple.png',onTap: () {},),]),
             
                   const SizedBox(height: 18,),
             

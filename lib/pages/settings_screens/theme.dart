@@ -26,7 +26,7 @@ class _ThemePageState extends State<ThemePage> {
           backgroundColor: Theme.of(context).colorScheme.background,
           body: Center(
             child: AnimatedContainer(
-              duration: const Duration(milliseconds: 700),
+              duration: const Duration(milliseconds: 500),
               height: 40,
               width: 120,
               decoration: BoxDecoration(
@@ -36,7 +36,7 @@ class _ThemePageState extends State<ThemePage> {
               child: Stack(
                 children: <Widget> [
                   AnimatedPositioned(
-                    duration: const Duration(milliseconds: 600),
+                    duration: const Duration(milliseconds: 400),
                     curve: Curves.easeIn,
                     top: 3.0,
                     left: toggleVal ? 60.0 : 0.0,
@@ -50,7 +50,7 @@ class _ThemePageState extends State<ThemePage> {
                         });
                       },
                       child: AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 400),
+                        duration: const Duration(milliseconds: 150),
                         transitionBuilder: (Widget child, Animation<double> animation) {
                           return RotationTransition(turns: animation, child: child);
                         },

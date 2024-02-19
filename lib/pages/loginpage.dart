@@ -133,13 +133,12 @@ class _LoginPageState extends State<LoginPage> {
                   onTap: () => {
                     Navigator.pushNamed(context, '/')
                   },
-                  child: Lottie.asset('lib/images/Hydraware_animation_2.json', width: 140, height: 140)), //TODO: Change logo to Hydraware logo
+                  child: Lottie.asset('assets/images/Hydraware_animation_2.json', width: 140, height: 140)), //TODO: Change logo to Hydraware logo
                 const SizedBox(height: 30),
                 Text('Welcome back!', style: TextStyle(color: Colors.blue[300],fontSize: 16,fontWeight: FontWeight.bold )),
                 const SizedBox(height: 25),
                 MyTextField(controller: emailController,hintText: 'Enter mail ID',obscureText: false,),
                 const SizedBox(height: 10),
-                //MyTextField(controller: passwordController,hintText: 'Enter password',obscureText: true,), //textfield.dart for config
                 pwdTextField(controller: passwordController, hintText: 'Enter Password', isPassword: isPassword), //pwdtextfield.dart for config
                 
                 const SizedBox(height: 10),
@@ -179,9 +178,9 @@ class _LoginPageState extends State<LoginPage> {
                  Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  SquareTile(imagepath: 'lib/images/google.png', onTap: () => AuthService().signInWithGoogle(),),
+                  SquareTile(imagepath: 'assets/images/google.png', onTap: () => AuthService().signInWithGoogle(),),
                   const SizedBox( width: 25,),
-                  SquareTile(imagepath: 'lib/images/apple.png',onTap: () {},),]),
+                  SquareTile(imagepath: 'assets/images/apple.png',onTap: () {},),]),
             
                   const SizedBox(height: 18,),
             
