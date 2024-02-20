@@ -135,20 +135,25 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: Lottie.asset('assets/images/Hydraware_animation_2.json', width: 140, height: 140)), //TODO: Change logo to Hydraware logo
                 const SizedBox(height: 30),
-                Text('Welcome back!', style: TextStyle(color: Colors.blue[300],fontSize: 16,fontWeight: FontWeight.bold )),
+                Text('Welcome back to Hydraware!', style: TextStyle(color: Colors.blue[300],fontSize: 16,fontWeight: FontWeight.bold,fontFamily: 'Cera Pro' )),
                 const SizedBox(height: 25),
                 MyTextField(controller: emailController,hintText: 'Enter mail ID',obscureText: false,),
                 const SizedBox(height: 10),
                 pwdTextField(controller: passwordController, hintText: 'Enter Password', isPassword: isPassword), //pwdtextfield.dart for config
                 
                 const SizedBox(height: 10),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        'Forgot password?', style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold)),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/forgotpwd');
+                        },
+                        child: const Text(
+                          'Forgot password?', style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontFamily: 'Cera Pro')),
+                      ),
                     ],
                   ),
                 ),
@@ -167,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
                           'Or continue with',
-                          style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold),),
+                          style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold,fontFamily: 'Cera Pro'),),
                       ),
                       Expanded(child: Divider(thickness: 0.75,color: Colors.grey[550],))
                     ],
@@ -187,7 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                    Text('Not a member?',style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold)),
+                    Text('Not a member?',style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold,fontFamily: 'Cera Pro')),
                     const SizedBox(width: 10,),
                     GestureDetector(
                       onTap: widget.onTap,
@@ -195,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                         'Register now!',
                         style: TextStyle(
                           color: Colors.blue,
-                          fontWeight: FontWeight.bold),),
+                          fontWeight: FontWeight.bold,fontFamily: 'Cera Pro'),),
                     ),
                   ],)
             

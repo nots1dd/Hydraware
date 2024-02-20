@@ -30,7 +30,7 @@ class SettingsScreen extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.lightBlue,
                           fontSize: 21,
-                          fontWeight: FontWeight.bold),),
+                          fontWeight: FontWeight.bold,fontFamily: 'Cera Pro'),),
                     ),
                 const SizedBox(height: 10),
                 Divider(thickness: 0.75,color: Theme.of(context).colorScheme.secondary,),
@@ -44,7 +44,7 @@ class SettingsScreen extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.lightBlue,
                           fontSize: 21,
-                          fontWeight: FontWeight.bold),),
+                          fontWeight: FontWeight.bold,fontFamily: 'Cera Pro'),),
                     ),
                 const SizedBox(height: 10),
                 Divider(thickness: 0.75,color: Theme.of(context).colorScheme.secondary,),
@@ -58,7 +58,7 @@ class SettingsScreen extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.lightBlue,
                           fontSize: 21,
-                          fontWeight: FontWeight.bold),),
+                          fontWeight: FontWeight.bold,fontFamily: 'Cera Pro'),),
                     ),
                 const SizedBox(height: 10),
                 Divider(thickness: 0.75,color: Theme.of(context).colorScheme.secondary,),
@@ -72,7 +72,7 @@ class SettingsScreen extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.lightBlue,
                           fontSize: 21,
-                          fontWeight: FontWeight.bold),),
+                          fontWeight: FontWeight.bold,fontFamily: 'Cera Pro'),),
                     ),
                 const SizedBox(height: 50),
                 MyButton(onTap: signUserOut, text: 'Sign Out'),
@@ -80,7 +80,7 @@ class SettingsScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Change Theme:', style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold,fontSize: 19),),
+                    Text('Change Theme:', style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold,fontSize: 19,fontFamily: 'Cera Pro'),),
                     const ThemePage(height: 60,width: 100,),
                   ],
                 ),

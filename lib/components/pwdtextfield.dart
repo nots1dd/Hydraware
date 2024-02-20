@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
+// ignore: must_be_immutable, camel_case_types
 class pwdTextField extends StatefulWidget {
   final controller;
   final String hintText;
@@ -11,6 +11,7 @@ class pwdTextField extends StatefulWidget {
   State<pwdTextField> createState() => _pwdTextFieldState();
 }
 
+// ignore: camel_case_types
 class _pwdTextFieldState extends State<pwdTextField> {
   @override
   Widget build(BuildContext context) {
@@ -20,13 +21,16 @@ class _pwdTextFieldState extends State<pwdTextField> {
       controller: widget.controller,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
+          borderRadius: BorderRadius.circular(20)),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Theme.of(context).colorScheme.primary)
+          ,borderRadius: BorderRadius.circular(20)
         ),
         fillColor: Theme.of(context).colorScheme.secondary,
         filled: true,
         hintText: widget.hintText,
+        hintStyle: const TextStyle(fontFamily: 'Cera Pro'),
         suffixIcon: GestureDetector(
           onTap: () => {
             setState(() {

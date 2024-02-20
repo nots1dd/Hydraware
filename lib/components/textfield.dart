@@ -15,13 +15,16 @@ class MyTextField extends StatelessWidget {
                   obscureText: obscureText, //to hide passwords
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),),
+                      borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
+                      borderRadius: BorderRadius.circular(20)),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Theme.of(context).colorScheme.primary)
+                      ,borderRadius: BorderRadius.circular(20)
                     ),
                     fillColor: Theme.of(context).colorScheme.secondary,
                     filled: true,
                     hintText: hintText,
+                    hintStyle: const TextStyle(fontFamily: 'Cera Pro'),
                   ),
                   style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
                 ),

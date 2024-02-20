@@ -15,7 +15,6 @@ class _ChatScreenState extends State<ChatScreen> {
   final List<String?> messages = [];
   bool _istyping = false;
   final ScrollController _scrollController = ScrollController();
-  @override
   RegExp profanityCheck = RegExp(r"fuck|sex|porn|dick|pussy|shit$");
   void invalidAuth(String message) {
     showDialog(
@@ -68,7 +67,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   });
                 },
                 icon: Icon(
-                  Icons.arrow_back_ios,
+                  Icons.arrow_back,
                   color: Theme.of(context).colorScheme.tertiary,
                 ),
               ),
@@ -109,13 +108,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         invalidAuth("Please do not use profanity");
                         return;
                       }
-                      setState(() {
-                        _istyping = true;
-                      });
                       submit();
-                      setState(() {
-                        _istyping = false;
-                      });
                     },
                   ),
                 ),
@@ -128,6 +121,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void submit() {
 
   setState(() {
+    _istyping = true;
     messages.add(msgController.text);
   final gemini = Gemini.instance;
     gemini.chat([
@@ -150,6 +144,12 @@ class _ChatScreenState extends State<ChatScreen> {
       Parts(text: 'I am Hydraware chat support assistant. I am here to help you with any queries or issues regarding the application. How may I help you today?')],
         role: 'model'),
     Content(parts: [ 
+      Parts(text: 'In case of any irrelevant queries, make sure to notify the user that you are only there to help with queries and issues regarding Hydraware. If the user persists, transfer the chat to a higher authority.')],
+        role: 'user'),
+    Content(parts: [ 
+      Parts(text: 'I am Hydraware chat support assistant. I will make sure to notify the user that I am only there to help with queries and issues regarding Hydraware. If the user persists, I will transfer the chat to a higher authority.')],
+        role: 'model'),
+    Content(parts: [ 
       Parts(text: msgController.text)], 
         role: 'user'),
     ])
@@ -163,6 +163,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }))
         .catchError((e) => setState(() => messages.add('Error: $e')));
   msgController.clear();
+  _istyping = false;
   _scrollController.animateTo(_scrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
   });
 }

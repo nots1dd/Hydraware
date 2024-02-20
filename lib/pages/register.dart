@@ -104,7 +104,7 @@ class RegisterPage extends StatefulWidget {
                   },
                   child: Lottie.asset('assets/images/Hydraware_animation_2.json', width: 130, height: 130)),
                 const SizedBox(height: 20),
-                Text('Welcome to Hydraware!', style: TextStyle(color: Colors.blue[300],fontSize: 16,fontWeight: FontWeight.bold)),
+                Text('Welcome to Hydraware!', style: TextStyle(color: Colors.blue[300],fontSize: 16,fontWeight: FontWeight.bold,fontFamily: 'Cera Pro')),
                 const SizedBox(height: 25),
                 MyTextField(controller: emailController,hintText: 'Enter mail ID',obscureText: false,),
                 const SizedBox(height: 10),
@@ -127,7 +127,7 @@ class RegisterPage extends StatefulWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
                           'Or continue with',
-                          style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold),),
+                          style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold,fontFamily: 'Cera Pro'),),
                       ),
                       Expanded(child: Divider(thickness: 0.75,color: Colors.grey[550],))
                     ],
@@ -147,7 +147,7 @@ class RegisterPage extends StatefulWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                    Text('Already a member?',style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold)),
+                    Text('Already a member?',style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold,fontFamily: 'Cera Pro')),
                     const SizedBox(width: 10,),
                     GestureDetector(
                       onTap: widget.onTap,
@@ -155,7 +155,7 @@ class RegisterPage extends StatefulWidget {
                         'Login now!',
                         style: TextStyle(
                           color: Colors.blue,
-                          fontWeight: FontWeight.bold),),
+                          fontWeight: FontWeight.bold,fontFamily: 'Cera Pro'),),
                     ),
                   ],)
             

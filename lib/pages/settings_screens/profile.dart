@@ -12,7 +12,7 @@ class Profile extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('Profile Settings', style: TextStyle(
-          color: Colors.blueAccent,),textAlign: TextAlign.left,),
+          color: Colors.blueAccent, fontFamily: 'Cera Pro'),textAlign: TextAlign.left,),
         actions: [
           IconButton(
             onPressed: () {
@@ -28,8 +28,19 @@ class Profile extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 30),
-                Text('You are : ${user.email}', style: const TextStyle(
-                  fontSize: 20)),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.secondary,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  padding: const EdgeInsets.all(20),
+                  child: Icon(Icons.person, size: 50, color: Theme.of(context).colorScheme.tertiary,),
+                ),
+                const SizedBox(height: 20),
+                const Center(child: Text('Signed in as: ',style: TextStyle(fontSize: 25,fontFamily: 'Cera Pro',fontWeight: FontWeight.bold),)),
+                const SizedBox(height: 10),
+                Text('${user.email}', style: const TextStyle(
+                  fontSize: 20, fontFamily: 'Cera Pro',fontWeight: FontWeight.bold),),
               ],
             ),
           ),

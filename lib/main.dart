@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:hydraware/consts/apikeys.dart';
+import 'package:hydraware/forgotpwdpage.dart';
 import 'package:hydraware/pages/authpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hydraware/pages/introduction_screen.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/profile': (BuildContext context) => Profile(),
         '/login': (BuildContext context) => const AuthPage(),
         '/chat': (BuildContext context) => const ChatScreen(),
+        '/forgotpwd': (BuildContext context) => const ForgotPwd(),
       },
       theme: Provider.of<ThemeProvider>(context).getTheme,
       debugShowCheckedModeBanner: false,

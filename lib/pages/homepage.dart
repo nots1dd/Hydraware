@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 
 
   final List<Widget> _widgetOptions = <Widget>[
-    const HomeScreen(), //TODO: Set screens
+    const HomeScreen(), 
     const SearchScreen(),
     SettingsScreen(),
   ];
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title:  Text("Hydraware",style: TextStyle(color: Theme.of(context).colorScheme.tertiary)),
+        title:  Text("Hydraware",style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontFamily: 'Cera Pro')),
         actions: [
           IconButton(
             onPressed: () {
@@ -54,10 +54,10 @@ class _HomePageState extends State<HomePage> {
             tabBackgroundColor: Colors.grey.shade900,
             padding: const EdgeInsets.all(10),
             gap: 5,
-            tabs: const  [
-              GButton(icon: Icons.home, text: 'Home'),
-              GButton(icon: Icons.search, text: 'Search'),
-              GButton(icon: Icons.settings, text: 'Settings')
+            tabs:  [
+              GButton(icon: Icons.home, text: 'Home', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200)),),
+              GButton(icon: Icons.search, text: 'Search', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200))),
+              GButton(icon: Icons.settings, text: 'Settings', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200)))
             ],
             selectedIndex: widget._selectedIndex,
             onTabChange: (index) {

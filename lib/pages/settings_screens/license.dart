@@ -10,7 +10,7 @@ class License extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('License', style: TextStyle(
-          color: Colors.blueAccent,),textAlign: TextAlign.left,),
+          color: Colors.blueAccent,fontFamily: 'Cera Pro'),textAlign: TextAlign.left,),
         actions: [
           IconButton(
             onPressed: () {
