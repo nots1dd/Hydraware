@@ -6,7 +6,7 @@ import 'package:hydraware/pages/searchscreen.dart';
 import 'package:hydraware/pages/settings_screen.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  HomePage({super.key});
 
   final user = FirebaseAuth.instance.currentUser!;
   int _selectedIndex = 0;

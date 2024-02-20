@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
-import 'package:hydraware/consts/apikeys.dart';
 import 'package:hydraware/pages/forgotpwdpage.dart';
 import 'package:hydraware/pages/auth/authpage.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,7 +16,8 @@ import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 Future main() async {
-  Gemini.init(apiKey: GEMINI_API_KEY_2);
+  await dotenv.load(fileName: ".env");
+  Gemini.init(apiKey: dotenv.env['GEMINI_API_KEY_2']!);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(ChangeNotifierProvider(create: (context) => ThemeProvider(), child: const MyApp()));

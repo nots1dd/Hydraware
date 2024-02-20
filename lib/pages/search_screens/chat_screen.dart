@@ -48,7 +48,6 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     double containerWidth = screenSize.width*0.1;
-    double containerHeight = screenSize.height*0.1;
     return Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(

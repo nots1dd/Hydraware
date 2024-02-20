@@ -31,7 +31,7 @@ migrate_working_dir/
 .pub/
 /build/
 README.md
-keys.env
+.env
 # Symbolication related
 app.*.symbols
 

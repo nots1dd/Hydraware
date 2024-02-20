@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ThreeDots extends StatefulWidget {
-  const ThreeDots({Key? key}) : super(key: key);
+  const ThreeDots({super.key});
 
   @override
   ThreeDotsState createState() => ThreeDotsState();
