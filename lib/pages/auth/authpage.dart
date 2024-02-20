@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:hydraware/pages/authmiddle.dart';
+import 'package:hydraware/pages/auth/authmiddle.dart';
 import 'package:hydraware/pages/homepage.dart';
 
 class AuthPage extends StatelessWidget {
