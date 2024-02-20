@@ -1,16 +1,19 @@
 # Hydraware
 
-A new Flutter project.
+A cross-platform solution toward a more hydro-knolwedgable world.
 
-## Getting Started
+## Aim
+- To give the user a quick and easy overview of the fresh water supply and hydrological analysis of their locality with the help of governmental organisations like National Institute of Hydrology along with Machine Learning to predict any future shortages
+- Effortless access of important announcements through push notifications
+- Build a gap between water suppliers and the populace
+- Give users an understanding of the water network in their area (includes STP, water processing so on)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Stack Required
+- Flutter 3.16
+- Dart
+- Firebase
+- OpenLayers (Map)
+- Gemini API
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
