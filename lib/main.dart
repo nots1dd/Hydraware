@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:hydraware/consts/apikeys.dart';
-import 'package:hydraware/forgotpwdpage.dart';
-import 'package:hydraware/pages/authpage.dart';
+import 'package:hydraware/pages/forgotpwdpage.dart';
+import 'package:hydraware/pages/auth/authpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hydraware/pages/introduction_screen.dart';
 import 'package:hydraware/pages/search_screens/chat_screen.dart';

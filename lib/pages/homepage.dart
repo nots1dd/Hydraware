@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:hydraware/pages/homescreen.dart';
+import 'package:hydraware/pages/home_screens/homescreen.dart';
 import 'package:hydraware/pages/searchscreen.dart';
 import 'package:hydraware/pages/settings_screen.dart';
 
