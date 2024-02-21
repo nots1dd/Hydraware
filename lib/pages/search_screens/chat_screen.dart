@@ -15,7 +15,7 @@ class _ChatScreenState extends State<ChatScreen> {
   final List<String?> messages = [];
   bool _istyping = false;
   final ScrollController _scrollController = ScrollController();
-  RegExp profanityCheck = RegExp(r"fuck|sex|porn|dick|pussy|shit$");
+  RegExp profanityCheck = RegExp(r"fuck|sex|porn|dick|pussy|shit|ass|homophobe|cunt$");
   void invalidAuth(String message) {
     showDialog(
       context: context,
@@ -157,7 +157,7 @@ class _ChatScreenState extends State<ChatScreen> {
           if (value != null) {
             messages.add(value.output)
           } else {
-            messages.add('Error: Try again.')
+            messages.add('Error: Kindly ask relevant queries to the chat bot as it is designed to only assist with Hydraware related issues only!.')
           }
   }))
         .catchError((e) => setState(() => messages.add('Error: $e')));

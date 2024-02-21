@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
         wrongPasswordMsg();
       }
       else {
-        invalidAuth();
+        invalidPrompt('Something went wrong! Please try again.');
       }
     }
   }
@@ -96,26 +96,31 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  void invalidAuth() {
+  void invalidPrompt(String message) {
+
     showDialog(
       context: context, 
       builder: (context) {
         return Dialog(
         child: Container(
-          width: 20,
-          height: 35,
+          width: 30,
+          height: 40,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.tertiary,
             borderRadius: BorderRadius.circular(8),),
         child: Center(
-          child: Text('Something went wrong! Try again!!', style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
-            fontSize: 16)),
+          child: FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Text(message, style: TextStyle(
+              color: Theme.of(context).colorScheme.secondary,
+              fontSize: 16,fontFamily: 'Cera Pro')),
+          ),
         ),
         ),
          
       );
-      });
+        },
+        );
   }
 
   @override
@@ -185,7 +190,9 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                   SquareTile(imagepath: 'assets/images/google.png', onTap: () => AuthService().signInWithGoogle(),),
                   const SizedBox( width: 25,),
-                  SquareTile(imagepath: 'assets/images/apple.png',onTap: () {},),]),
+                  SquareTile(imagepath: 'assets/images/apple.png',onTap: () {
+                    invalidPrompt('Apple Sign In is not available yet!');
+                  },),]),
             
                   const SizedBox(height: 18,),
             

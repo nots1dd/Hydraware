@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hydraware/pages/settings_screens/license_string.dart';
 
 class License extends StatelessWidget {
   const License({super.key});
@@ -20,14 +21,14 @@ class License extends StatelessWidget {
           )
         ],
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
             child: Column(
               children: [
-                SizedBox(height: 30),
-                Text('License by who?', style: TextStyle(
-                  fontSize: 30)),
+                const SizedBox(height: 10),
+                Text(license, style: TextStyle(
+                  fontSize: 14,fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.tertiary)),
               ],
             ),
           ),

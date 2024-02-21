@@ -29,8 +29,10 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title:  Text("Hydraware",style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontFamily: 'Cera Pro')),
+        title:  Image.asset('assets/images/icon.png',height: 80,width: 80),
         actions: [
+          Text("Hydraware",style: TextStyle(color: Colors.blue[800],fontFamily: 'Cera Pro',fontSize: 20)),
+          const SizedBox(width: 135),
           IconButton(
             onPressed: () {
               Navigator.pushNamed(context, '/profile');
@@ -42,29 +44,32 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: widget._widgetOptions.elementAt(widget._selectedIndex),
       ),
-      bottomNavigationBar: Container(
-        color: Theme.of(context).colorScheme.background,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 11.0, vertical: 15.0),
-          child: GNav(
-            haptic: true,
-            backgroundColor: Theme.of(context).colorScheme.background,
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: Colors.grey.shade900,
-            padding: const EdgeInsets.all(10),
-            gap: 5,
-            tabs:  [
-              GButton(icon: Icons.home, text: 'Home', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200)),),
-              GButton(icon: Icons.search, text: 'Search', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200))),
-              GButton(icon: Icons.settings, text: 'Settings', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200)))
-            ],
-            selectedIndex: widget._selectedIndex,
-            onTabChange: (index) {
-              setState(() {
-                widget._selectedIndex = index;
-              });
-            },
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(50)),
+        child: Container(
+          color: Theme.of(context).colorScheme.background,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 11.0, vertical: 15.0),
+            child: GNav(
+              haptic: true,
+              backgroundColor: Theme.of(context).colorScheme.background,
+              color: Colors.white,
+              activeColor: Colors.white,
+              tabBackgroundColor: Colors.grey.shade900,
+              padding: const EdgeInsets.all(6),
+              gap: 6,
+              tabs:  [
+                GButton(icon: Icons.home, text: 'Home', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200)),),
+                GButton(icon: Icons.search, text: 'Search', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200))),
+                GButton(icon: Icons.settings, text: 'Settings', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200)))
+              ],
+              selectedIndex: widget._selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  widget._selectedIndex = index;
+                });
+              },
+            ),
           ),
         ),
       ),

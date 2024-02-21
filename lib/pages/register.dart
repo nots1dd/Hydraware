@@ -39,7 +39,7 @@ class RegisterPage extends StatefulWidget {
             fit: BoxFit.fitWidth,
             child: Text(message, style: TextStyle(
               color: Theme.of(context).colorScheme.secondary,
-              fontSize: 16)),
+              fontSize: 16,fontFamily: 'Cera Pro')),
           ),
         ),
         ),
@@ -140,7 +140,9 @@ class RegisterPage extends StatefulWidget {
                   children: [
                   SquareTile(imagepath: 'assets/images/google.png', onTap: () => AuthService().signInWithGoogle(),),
                   const SizedBox( width: 25,),
-                  SquareTile(imagepath: 'assets/images/apple.png',onTap: () {},),]),
+                  SquareTile(imagepath: 'assets/images/apple.png',onTap: () {
+                    invalidAuth('Apple Sign In not available yet!');
+                  },),]),
             
                   const SizedBox(height: 18,),
             

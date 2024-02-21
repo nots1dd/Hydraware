@@ -22,6 +22,7 @@ class _ChatTextFieldState extends State<ChatTextField> {
             controller: widget.msgController,
             decoration: InputDecoration(
               hintText: 'Type a message',
+              hintStyle: const TextStyle(fontFamily: 'Cera Pro'),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
                 borderRadius: BorderRadius.circular(15),
