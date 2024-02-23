@@ -1,5 +1,7 @@
 # Hydraware
 
+<img src="assets/images/icon.png" alt="Logo" width="220" height="170">
+
 A cross-platform solution toward a more hydro-knolwedgable world.
 
 ## Aim
@@ -15,5 +17,18 @@ A cross-platform solution toward a more hydro-knolwedgable world.
 - Firebase
 - OpenLayers (Map)
 - Gemini API
+
+## Initial Survey and Product Feasibility Research
+
+https://forms.gle/HoFUQtE2LMUAtfDD9
+
+![image](https://github.com/nots1dd/Hydraware/assets/140317709/c8c453ff-a955-4657-9c87-f2b4267d6128)
+![image](https://github.com/nots1dd/Hydraware/assets/140317709/f46e4084-adcf-4174-b051-34970daf20fb)
+![image](https://github.com/nots1dd/Hydraware/assets/140317709/595b0dd4-1444-427a-8b8a-e396902403b6)
+
+
+
+
+
 
 
