@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ToggleButton extends StatefulWidget {
   final String dir;
-  const ToggleButton({super.key,required this.dir});
+  const ToggleButton({super.key, required this.dir});
 
   @override
   State<ToggleButton> createState() => _ToggleButtonState();
@@ -11,13 +11,15 @@ class ToggleButton extends StatefulWidget {
 class _ToggleButtonState extends State<ToggleButton> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 240),
-      child: ElevatedButton(
+    return FloatingActionButton(
+      backgroundColor: Theme.of(context).colorScheme.background,
         onPressed: () {
           Navigator.pushNamed(context, widget.dir);
-        }, 
-        child: Icon(Icons.chat_bubble_rounded,color: Theme.of(context).colorScheme.tertiary,size: 30,)),
-    );
+        },
+        child: Icon(
+          Icons.chat_bubble_rounded,
+          color: Theme.of(context).colorScheme.primary,
+          size: 30,
+        ));
   }
 }

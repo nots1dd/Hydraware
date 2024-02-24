@@ -65,9 +65,9 @@ class _HomePageState extends State<HomePage> {
               haptic: true,
               backgroundColor: Theme.of(context).colorScheme.background,
               color: Theme.of(context).colorScheme.onBackground,
-              activeColor: Theme.of(context).colorScheme.onPrimary,
-              tabBackgroundColor: Theme.of(context).colorScheme.primary,
-              padding: const EdgeInsets.all(6),
+              activeColor: Theme.of(context).colorScheme.primary,
+              tabBackgroundColor: Theme.of(context).colorScheme.primary.withAlpha(60),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               gap: 6,
               tabs: [
                 bottomNavBarButton(Icons.home, 'Home'),
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
         text: text,
         textStyle: TextStyle(
             fontFamily: 'Cera Pro',
-            color: Theme.of(context).colorScheme.onPrimary),
+            color: Theme.of(context).colorScheme.primary),
     );
   }
 }
