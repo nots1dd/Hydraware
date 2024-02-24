@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hydraware/components/button.dart';
@@ -71,10 +72,15 @@ class RegisterPage extends StatefulWidget {
       return;
     }
       if (passwordController.text.trim() == confirmpasswordController.text.trim()) { 
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        UserCredential userCred = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(), 
         password: passwordController.text.trim()
         );
+        FirebaseFirestore.instance.collection('Users').doc(userCred.user!.email).set({
+          'username': emailController.text.trim().split('@')[0],
+          'email': emailController.text.trim(),
+          'uid': userCred.user!.uid,
+        });
       } else {
         invalidAuth('Passwords do not match');
 

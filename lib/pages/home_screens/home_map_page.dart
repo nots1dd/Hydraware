@@ -4,6 +4,8 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:hydraware/components/tile_providers.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 class MapApp extends StatefulWidget {
+  const MapApp({super.key});
+
   @override
   _MapAppState createState() => _MapAppState();
 }

@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hydraware/pages/home_screens/home_map_page.dart';
-import 'package:hydraware/pages/searchscreen.dart';
+import 'package:hydraware/pages/search_screens/search_forum.dart';
 import 'package:hydraware/pages/settings_screen.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 
   final List<Widget> _widgetOptions = <Widget>[
     MapApp(), 
-    const SearchScreen(),
+    const SearchForumIntroScreen(),
     SettingsScreen(),
   ];
 
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           color: Theme.of(context).colorScheme.background,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 11.0, vertical: 15.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
             child: GNav(
               haptic: true,
               backgroundColor: Theme.of(context).colorScheme.background,
