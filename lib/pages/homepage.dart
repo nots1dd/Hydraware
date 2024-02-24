@@ -11,9 +11,8 @@ class HomePage extends StatefulWidget {
   final user = FirebaseAuth.instance.currentUser!;
   int _selectedIndex = 0;
 
-
   final List<Widget> _widgetOptions = <Widget>[
-    MapApp(), 
+    MapApp(),
     const SearchScreen(),
     SettingsScreen(),
   ];
@@ -29,16 +28,27 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title:  Image.asset('assets/images/icon.png',height: 80,width: 80),
+        title: Text("Hydraware",
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.onPrimary,
+                fontFamily: 'Cera Pro',
+                fontSize: 20)),
         actions: [
-          Text("Hydraware",style: TextStyle(color: Colors.blue[800],fontFamily: 'Cera Pro',fontSize: 20)),
-          const SizedBox(width: 135),
-          IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/profile');
-            },
-            icon: Icon(Icons.account_circle_outlined,color: Theme.of(context).colorScheme.tertiary,),
-          )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                icon: Icon(
+                  Icons.account_circle_outlined,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
+            ],
+          ),
         ],
       ),
       body: Center(
@@ -49,19 +59,20 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           color: Theme.of(context).colorScheme.background,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 11.0, vertical: 15.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 11.0, vertical: 15.0),
             child: GNav(
               haptic: true,
               backgroundColor: Theme.of(context).colorScheme.background,
-              color: Colors.white,
-              activeColor: Colors.white,
-              tabBackgroundColor: Colors.grey.shade900,
+              color: Theme.of(context).colorScheme.onBackground,
+              activeColor: Theme.of(context).colorScheme.onPrimary,
+              tabBackgroundColor: Theme.of(context).colorScheme.primary,
               padding: const EdgeInsets.all(6),
               gap: 6,
-              tabs:  [
-                GButton(icon: Icons.home, text: 'Home', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200)),),
-                GButton(icon: Icons.search, text: 'Search', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200))),
-                GButton(icon: Icons.settings, text: 'Settings', textStyle: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.secondary.withBlue(200)))
+              tabs: [
+                bottomNavBarButton(Icons.home, 'Home'),
+                bottomNavBarButton(Icons.search, 'Search'),
+                bottomNavBarButton(Icons.settings, 'Settings'),
               ],
               selectedIndex: widget._selectedIndex,
               onTabChange: (index) {
@@ -73,6 +84,16 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+    );
+  }
+
+  GButton bottomNavBarButton(IconData icon, String text) {
+    return GButton(
+        icon: icon,
+        text: text,
+        textStyle: TextStyle(
+            fontFamily: 'Cera Pro',
+            color: Theme.of(context).colorScheme.onPrimary),
     );
   }
 }

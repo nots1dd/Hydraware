@@ -52,7 +52,7 @@ class _MapAppState extends State<MapApp> {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: FloatingActionButton(
-              backgroundColor: Theme.of(context).colorScheme.primary,
+              backgroundColor: Theme.of(context).colorScheme.background,
               onPressed: () {
                 setState(
                   () => _alignPositionOnUpdate = AlignOnUpdate.always,
@@ -61,7 +61,7 @@ class _MapAppState extends State<MapApp> {
               },
               child: Icon(
                 Icons.my_location,
-                color: Theme.of(context).colorScheme.tertiary,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           ),
