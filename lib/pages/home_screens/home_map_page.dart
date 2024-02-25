@@ -66,8 +66,8 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
                         color: Colors.blue, size: 100),
                   ),
                   directionArrowMarker: const MarkerIcon(
-                    icon:
-                        Icon(Icons.person_pin_circle, color: Colors.blue, size: 100),
+                    icon: Icon(Icons.person_pin_circle,
+                        color: Colors.blue, size: 100),
                   ),
                 ),
                 zoomOption: const ZoomOption(
@@ -100,7 +100,37 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
             )
           ],
         ),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          FloatingActionButton(
+            onPressed: () async {
+              await controller.setZoom(zoomLevel: 10);
+              await controller.currentLocation();
+            },
+            backgroundColor: Theme.of(context).colorScheme.background,
+            child: Icon(Icons.my_location, color: Theme.of(context).colorScheme.primary,),
+          ),
+          const SizedBox(height: 15),
+          FloatingActionButton(
+            onPressed: () async {
+              await controller.zoomIn();
+            },
+            backgroundColor: Theme.of(context).colorScheme.background,
+            child: Icon(Icons.add, color: Theme.of(context).colorScheme.primary,),
+          ),
+          const SizedBox(height: 15),
+          FloatingActionButton(
+            onPressed: () async {
+              await controller.zoomOut();
+            },
+            backgroundColor: Theme.of(context).colorScheme.background,
+            child: Icon(Icons.remove, color: Theme.of(context).colorScheme.primary,),
+          )
+        ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 
