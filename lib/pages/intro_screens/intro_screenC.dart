@@ -8,7 +8,7 @@ class ScreenC extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/Designer_1.jpeg'),
               fit: BoxFit.cover, // Adjust as needed
@@ -17,10 +17,10 @@ class ScreenC extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.all(20.0), // Add padding for text
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center, // Center content vertically
             children: [
-              const SizedBox(height: 40), // Adjust spacing
+              SizedBox(height: 40), // Adjust spacing
               Text( // Centered horizontally by default in Column
                 'Ready for your hydroful journey?',
                 style: TextStyle(
@@ -30,7 +30,7 @@ class ScreenC extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ), // Added missing closing parenthesis for Text widget
-              const SizedBox(height: 20), // Adjust spacing
+              SizedBox(height: 20), // Adjust spacing
               // ... your other widgets here
             ],
           ),

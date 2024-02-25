@@ -10,7 +10,7 @@ class ScreenA extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 60),
-          Text('Welcome to Hydraware',
+          const Text('Welcome to Hydraware',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
