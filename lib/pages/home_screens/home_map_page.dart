@@ -8,7 +8,7 @@ class MapApp extends StatefulWidget {
 }
 
 class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
-  late MapController controller;
+  late MapController controller = MapController();
 
   @override
   void initState() {
@@ -19,6 +19,8 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
         unFollowUser: false,
       ),
     );
+    controller.setZoom(zoomLevel:10);
+    controller.currentLocation();
   }
 
   @override
@@ -48,12 +50,31 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
               )),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await controller.setZoom(zoomLevel: 10);
-          await controller.currentLocation();
-        },
-        child: const Icon(Icons.my_location, color: Colors.white),
+      
+      floatingActionButton: Padding(padding: EdgeInsets.all(10),
+        child: Row(
+          children: <Widget>[
+            FloatingActionButton(
+              onPressed: () async {
+                await controller.setZoom(zoomLevel: 10);
+                await controller.currentLocation();
+              },
+              child: const Icon(Icons.my_location, color: Colors.white),
+            ),
+            FloatingActionButton(
+              onPressed: () async {
+                await controller.zoomIn();
+              },
+              child: const Icon(Icons.add, color: Colors.white),
+            ),
+            FloatingActionButton(
+              onPressed: () async {
+                await controller.zoomOut();
+              },
+              child: const Icon(Icons.remove, color: Colors.white),
+            )
+          ],
+        ),
       ),
     );
   }
