@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:hydraware/components/textfield.dart';
 import 'package:hydraware/pages/search_screens/posts/posts_db.dart';
+import 'package:profanity_filter/profanity_filter.dart';
 
 class PostScreen extends StatefulWidget {
   PostScreen({super.key});
@@ -17,6 +18,7 @@ class _PostScreenState extends State<PostScreen> {
   final TextEditingController contentController = TextEditingController();
   final TextEditingController areaController = TextEditingController();
   final currentUser = FirebaseAuth.instance.currentUser;
+  final filter = ProfanityFilter();
 
   bool isVoted = false;
 
@@ -61,6 +63,10 @@ class _PostScreenState extends State<PostScreen> {
       if (contentController.text.isNotEmpty && areaController.text.isNotEmpty) {
         String message = contentController.text;
         String area = areaController.text;
+        if(filter.hasProfanity(message) || filter.hasProfanity(area)){
+          prompt("Please do not use profanity");
+          return;
+        }
         await database.addPost(message, area);
         Navigator.pop(context);
         prompt('Post successful!');
