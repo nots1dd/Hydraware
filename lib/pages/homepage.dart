@@ -48,6 +48,15 @@ class _HomePageState extends State<HomePage> {
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/helpline');
+                },
+                icon: Icon(
+                  Icons.sos,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
             ],
           ),
         ],

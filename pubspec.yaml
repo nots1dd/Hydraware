@@ -52,6 +52,7 @@ dependencies:
   flutter_osm_plugin: 1.0.0-dev.4
   flutter_launcher_icons: ^0.13.1
   profanity_filter: ^2.0.0
+  url_launcher: ^6.2.5
 
 flutter_launcher_icons:
   image_path_android: "assets/images/icon_alt.png"

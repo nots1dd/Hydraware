@@ -13,7 +13,11 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  void prompt(String message) {
+  final List<String?> messages = [];
+  final filter = ProfanityFilter();
+  bool _istyping = false;
+  final ScrollController _scrollController = ScrollController();
+  void invalidAuth(String message) {
     showDialog(
       context: context,
       barrierColor: Theme.of(context).colorScheme.onBackground.withAlpha(80),
@@ -43,10 +47,6 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  final List<String?> messages = [];
-  final filter = ProfanityFilter();
-  bool _istyping = false;
-  final ScrollController _scrollController = ScrollController();
 
   final msgController = TextEditingController();
   @override
@@ -190,10 +190,10 @@ class _ChatScreenState extends State<ChatScreen> {
                 msgController: msgController,
                 submit: () {
                   if (filter.hasProfanity(msgController.text)) {
-                    prompt("Please do not use profanity");
+                    invalidAuth("Please do not use profanity");
                     return;
                   } else if (msgController.text.isEmpty) {
-                    prompt('Empty message, try again!');
+                    invalidAuth('Empty message, try again!');
                   } else {
                     submit();
                   }
