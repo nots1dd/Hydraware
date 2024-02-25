@@ -6,7 +6,7 @@ import 'package:hydraware/pages/search_screens/posts/posts_db.dart';
 import 'package:intl/intl.dart';
 
 class Profile extends StatefulWidget {
-  Profile({super.key});
+  const Profile({super.key});
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -109,6 +109,7 @@ class _ProfileState extends State<Profile> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -193,7 +194,7 @@ class _ProfileState extends State<Profile> {
                                           fontSize: 20)),
                                   const SizedBox(width: 20),
                                   IconButton(
-                                    onPressed: signInCheck,
+                                    onPressed: editField,
                                     icon: Icon(
                                       Icons.edit,
                                       color:

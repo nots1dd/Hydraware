@@ -6,21 +6,21 @@ class ScreenA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue[600],
+      color: Colors.blue[800],
       child: Column(
         children: [
           const SizedBox(height: 60),
-          Text('Welcome to Hydraware',
+          const Text('Welcome to Hydraware',
               style: TextStyle(
-                  color: Colors.blue[850],
+                  color: Colors.white,
                   fontSize: 24,
                   fontFamily: 'Cera Pro',
                   fontWeight: FontWeight.bold)),
           const SizedBox(height: 20),
           Container(
-              color: Colors.blue[600],
+              color: Colors.blue[800],
               child: Image.asset(
-                'assets/images/logo.png',
+                'assets/images/icon_alt.png',
                 width: 200,
                 height: 200,
                 fit: BoxFit.cover,
@@ -29,7 +29,7 @@ class ScreenA extends StatelessWidget {
           const Text('Your app for everything hydro!',
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 20,
+                  fontSize: 22,
                   fontFamily: 'Cera Pro',
                   fontWeight: FontWeight.w200)),
           const SizedBox(height: 20),
