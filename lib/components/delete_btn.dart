@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class DelBtn extends StatelessWidget {
   final Function()? onTap;
   const DelBtn({super.key, required this.onTap});
@@ -18,7 +17,11 @@ class DelBtn extends StatelessWidget {
         //   color: Theme.of(context).colorScheme.tertiary,
         //   borderRadius: BorderRadius.circular(20),),
         child: Center(
-          child: Icon(Icons.delete, color: Theme.of(context).colorScheme.primary, size: 20,),
+          child: Icon(
+            Icons.delete,
+            color: Theme.of(context).colorScheme.primary,
+            size: 20,
+          ),
         ),
       ),
     );

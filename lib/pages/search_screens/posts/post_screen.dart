@@ -64,7 +64,7 @@ class _PostScreenState extends State<PostScreen> {
       if (contentController.text.isNotEmpty && areaController.text.isNotEmpty) {
         String message = contentController.text;
         String area = areaController.text;
-        if(filter.hasProfanity(message) || filter.hasProfanity(area)){
+        if (filter.hasProfanity(message) || filter.hasProfanity(area)) {
           prompt("Please do not use profanity");
           return;
         }
@@ -87,10 +87,14 @@ class _PostScreenState extends State<PostScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title:  Text('Post',style: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.background),),
-        leading:
-          KeyboardDismissOnTap(
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Post',
+            style: TextStyle(
+                fontFamily: 'Cera Pro',
+                color: Theme.of(context).colorScheme.background),
+          ),
+          leading: KeyboardDismissOnTap(
             dismissOnCapturedTaps: true,
             child: IconButton(
               onPressed: () async {
@@ -103,8 +107,7 @@ class _PostScreenState extends State<PostScreen> {
                 color: Theme.of(context).colorScheme.background,
               ),
             ),
-          )
-      ),
+          )),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

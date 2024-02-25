@@ -12,8 +12,9 @@ class License extends StatelessWidget {
             automaticallyImplyLeading: false,
             title: Text(
               'License',
-              style:
-                  TextStyle(color: Theme.of(context).colorScheme.background, fontFamily: 'Cera Pro'),
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.background,
+                  fontFamily: 'Cera Pro'),
               textAlign: TextAlign.left,
             ),
             leading: IconButton(
@@ -35,8 +36,8 @@ class License extends StatelessWidget {
                     const SizedBox(height: 10),
                     Text(license,
                         style: const TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Cera Pro',
+                          fontSize: 14,
+                          fontFamily: 'Cera Pro',
                         )),
                   ],
                 ),

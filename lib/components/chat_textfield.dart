@@ -27,7 +27,8 @@ class _ChatTextFieldState extends State<ChatTextField> {
                 borderRadius: BorderRadius.circular(15),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.6),
+                borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.primary, width: 2.6),
                 borderRadius: BorderRadius.circular(15),
               ),
               // fillColor: Theme.of(context).colorScheme.secondary,

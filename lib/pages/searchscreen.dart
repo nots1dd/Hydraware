@@ -114,18 +114,27 @@ class _SearchScreenState extends State<SearchScreen> {
                   onChanged: (value) => setState(() {}),
                   style: TextStyle(
                       fontFamily: 'Cera Pro',
-                      color: Theme.of(context).colorScheme.onBackground.withAlpha(100)),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onBackground
+                          .withAlpha(100)),
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide: BorderSide(
-                          color: Theme.of(context).colorScheme.onBackground.withAlpha(100)),
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onBackground
+                              .withAlpha(100)),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide: BorderSide(
                           width: 2.5,
-                          color: Theme.of(context).colorScheme.primary.withAlpha(200)),
+                          color: Theme.of(context)
+                              .colorScheme
+                              .primary
+                              .withAlpha(200)),
                     ),
                     fillColor: Theme.of(context).colorScheme.surface,
                     filled: true,
@@ -170,7 +179,8 @@ class _SearchScreenState extends State<SearchScreen> {
                             'No posts yet!',
                             style: TextStyle(
                                 fontFamily: 'Cera Pro',
-                                color: Theme.of(context).colorScheme.onBackground,
+                                color:
+                                    Theme.of(context).colorScheme.onBackground,
                                 fontSize: 20),
                           ),
                         ));

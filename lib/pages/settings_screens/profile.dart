@@ -165,9 +165,8 @@ class _ProfileState extends State<Profile> {
                           return Center(
                               child: Text('No data found! ${snapshot.error}',
                                   style: TextStyle(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .surface,
+                                      color:
+                                          Theme.of(context).colorScheme.surface,
                                       fontFamily: 'Cera Pro',
                                       fontSize: 20)));
                         }
@@ -197,9 +196,8 @@ class _ProfileState extends State<Profile> {
                                     onPressed: signInCheck,
                                     icon: Icon(
                                       Icons.edit,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .primary,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                     ),
                                   ),
                                 ],
@@ -208,8 +206,9 @@ class _ProfileState extends State<Profile> {
                             const SizedBox(height: 10),
                             Text('Email: ${userData['email']}',
                                 style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.onBackground,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onBackground,
                                     fontFamily: 'Cera Pro',
                                     fontSize: 20)),
                             const SizedBox(height: 10),
