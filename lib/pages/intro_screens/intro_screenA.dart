@@ -12,7 +12,7 @@ class ScreenA extends StatelessWidget {
           const SizedBox(height: 60),
           Text('Welcome to Hydraware',
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 24,
                   fontFamily: 'Cera Pro',
                   fontWeight: FontWeight.bold)),
@@ -28,7 +28,7 @@ class ScreenA extends StatelessWidget {
           const SizedBox(height: 20),
           const Text('Your app for everything hydro!',
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 22,
                   fontFamily: 'Cera Pro',
                   fontWeight: FontWeight.w200)),

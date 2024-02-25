@@ -46,7 +46,7 @@ class _IntroScreenState extends State<IntroScreen> {
                       child: const Text(
                         'Skip',
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 17),
                       )),
@@ -63,7 +63,7 @@ class _IntroScreenState extends State<IntroScreen> {
                           child: const Text('Done',
                               style: TextStyle(
                                 fontSize: 17,
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               )))
                       : GestureDetector(
@@ -75,7 +75,7 @@ class _IntroScreenState extends State<IntroScreen> {
                           child: const Text('Next',
                               style: TextStyle(
                                 fontSize: 17,
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ))),
                 ],

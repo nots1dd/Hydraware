@@ -15,9 +15,9 @@ class ScreenB extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Be mindful, be sustainable',
+                  'Be mindful, Be sustainable',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
                   ),
