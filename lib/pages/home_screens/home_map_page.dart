@@ -14,10 +14,38 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
   void initState() {
     super.initState();
     controller = MapController(
-      initMapWithUserPosition: UserTrackingOption(
+      initMapWithUserPosition: const UserTrackingOption(
         enableTracking: true,
         unFollowUser: false,
       ),
+    );
+  }
+
+  void prompt(String message) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Container(
+            width: 30,
+            height: 40,
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.tertiary,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Center(
+              child: FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Text(message,
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontSize: 16,
+                        fontFamily: 'Cera Pro')),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -30,19 +58,19 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
           OSMFlutter(
               controller: controller,
               osmOption: OSMOption(
-                showZoomController: true,
+                showZoomController: false,
                 enableRotationByGesture: false,
                 userLocationMarker: UserLocationMaker(
-                  personMarker: MarkerIcon(
+                  personMarker: const MarkerIcon(
                     icon: Icon(Icons.person_pin_circle,
                         color: Colors.blue, size: 100),
                   ),
-                  directionArrowMarker: MarkerIcon(
+                  directionArrowMarker: const MarkerIcon(
                     icon:
-                        Icon(Icons.arrow_upward, color: Colors.blue, size: 100),
+                        Icon(Icons.person_pin_circle, color: Colors.blue, size: 100),
                   ),
                 ),
-                zoomOption: ZoomOption(
+                zoomOption: const ZoomOption(
                   initZoom: 10,
                 ),
               )),
@@ -50,8 +78,22 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await controller.setZoom(zoomLevel: 10);
-          await controller.currentLocation();
+          showDialog(
+            context: context,
+            builder: (context) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            },
+          );
+          try {
+            await controller.setZoom(zoomLevel: 10);
+            await controller.currentLocation();
+            Navigator.pop(context);
+          } catch (e) {
+            prompt(e.toString());
+            Navigator.pop(context);
+          }
         },
         child: const Icon(Icons.my_location, color: Colors.white),
       ),

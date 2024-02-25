@@ -19,6 +19,7 @@ class _ProfileState extends State<Profile> {
 
   final usersCollection = FirebaseFirestore.instance.collection("Users");
 
+
   void prompt(String message) {
     showDialog(
       context: context,
@@ -97,6 +98,17 @@ class _ProfileState extends State<Profile> {
                     ))
               ],
             ));
+  }
+
+  void signInCheck () {
+  for (UserInfo userinfo in user.providerData) {
+    if (userinfo.providerId == 'password') {
+      editField();
+    }
+    else {
+      prompt('Editing username with Google SignIn coming soon!');
+    }
+  }
   }
 
   @override
@@ -185,7 +197,7 @@ class _ProfileState extends State<Profile> {
                                           fontSize: 20)),
                                   const SizedBox(width: 20),
                                   IconButton(
-                                    onPressed: () => editField(),
+                                    onPressed: signInCheck,
                                     icon: Icon(
                                       Icons.edit,
                                       color: Theme.of(context)

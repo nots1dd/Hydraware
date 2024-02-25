@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    MapApp(),
+    const MapApp(), 
     const SearchForumIntroScreen(),
     SettingsScreen(),
   ];
