@@ -14,9 +14,9 @@ class DelBtn extends StatelessWidget {
         width: 50,
         padding: const EdgeInsets.all(5),
         margin: const EdgeInsets.symmetric(horizontal: 5),
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.tertiary,
-          borderRadius: BorderRadius.circular(20),),
+        // decoration: BoxDecoration(
+        //   color: Theme.of(context).colorScheme.tertiary,
+        //   borderRadius: BorderRadius.circular(20),),
         child: Center(
           child: Icon(Icons.delete, color: Theme.of(context).colorScheme.primary, size: 20,),
         ),
