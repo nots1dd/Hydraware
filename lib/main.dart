@@ -4,6 +4,7 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:hydraware/pages/forgotpwdpage.dart';
 import 'package:hydraware/pages/auth/authpage.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:hydraware/pages/helpline.dart';
 import 'package:hydraware/pages/introduction_screen.dart';
 import 'package:hydraware/pages/search_screens/chat_screen.dart';
 import 'package:hydraware/pages/search_screens/posts/post_screen.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
         '/search': (BuildContext context) => const SearchScreen(),
         '/announcement': (BuildContext context) => const SearchAnnouncements(),
         '/post': (BuildContext context) => PostScreen(),
+        '/helpline': (BuildContext context) => const HelplineScreen(),
       },
       theme: Provider.of<ThemeProvider>(context).getTheme,
       debugShowCheckedModeBanner: false,

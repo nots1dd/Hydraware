@@ -64,7 +64,7 @@ class _PostScreenState extends State<PostScreen> {
       if (contentController.text.isNotEmpty && areaController.text.isNotEmpty) {
         String message = contentController.text;
         String area = areaController.text;
-        if (filter.hasProfanity(message) || filter.hasProfanity(area)) {
+        if(filter.hasProfanity(message) || filter.hasProfanity(area)){
           prompt("Please do not use profanity");
           return;
         }
