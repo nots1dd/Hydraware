@@ -81,7 +81,7 @@ class _PostScreenState extends State<PostScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('Post'),
+        title:  Text('Post',style: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.tertiary),),
         actions: [
           const SizedBox(width: 20),
           KeyboardDismissOnTap(
