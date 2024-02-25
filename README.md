@@ -43,9 +43,11 @@ https://forms.gle/HoFUQtE2LMUAtfDD9
 ![image](https://github.com/nots1dd/Hydraware/assets/140317709/f46e4084-adcf-4174-b051-34970daf20fb)
 ![image](https://github.com/nots1dd/Hydraware/assets/140317709/595b0dd4-1444-427a-8b8a-e396902403b6)
 
-
-
-
+## Credits
+-[Siddharth Karanam](https://github.com/nots1dd)
+-[Ananta Krishnan](https://github.com/OneRandom1509)
+-[Abhinav Anil](https://github.com/Sasikuttan2163)
+-[Reuben Philip](https://github.com/AltSumpreme)
 
 
 
