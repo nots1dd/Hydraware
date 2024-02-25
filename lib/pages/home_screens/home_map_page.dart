@@ -14,7 +14,7 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
   void initState() {
     super.initState();
     controller = MapController(
-      initMapWithUserPosition: const UserTrackingOption(
+      initMapWithUserPosition: UserTrackingOption(
         enableTracking: true,
         unFollowUser: false,
       ),
@@ -66,8 +66,8 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
                         color: Colors.blue, size: 100),
                   ),
                   directionArrowMarker: const MarkerIcon(
-                    icon:
-                        Icon(Icons.person_pin_circle, color: Colors.blue, size: 100),
+                    icon: Icon(Icons.person_pin_circle,
+                        color: Colors.blue, size: 100),
                   ),
                 ),
                 zoomOption: const ZoomOption(
@@ -76,27 +76,46 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
               )),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          showDialog(
-            context: context,
-            builder: (context) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          FloatingActionButton(
+            onPressed: () async {
+              await controller.setZoom(zoomLevel: 10);
+              await controller.currentLocation();
             },
-          );
-          try {
-            await controller.setZoom(zoomLevel: 10);
-            await controller.currentLocation();
-            Navigator.pop(context);
-          } catch (e) {
-            prompt(e.toString());
-            Navigator.pop(context);
-          }
-        },
-        child: const Icon(Icons.my_location, color: Colors.white),
+            backgroundColor: Theme.of(context).colorScheme.background,
+            child: Icon(
+              Icons.my_location,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
+          const SizedBox(height: 15),
+          FloatingActionButton(
+            onPressed: () async {
+              await controller.zoomIn();
+            },
+            backgroundColor: Theme.of(context).colorScheme.background,
+            child: Icon(
+              Icons.add,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
+          const SizedBox(height: 15),
+          FloatingActionButton(
+            onPressed: () async {
+              await controller.zoomOut();
+            },
+            backgroundColor: Theme.of(context).colorScheme.background,
+            child: Icon(
+              Icons.remove,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          )
+        ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 

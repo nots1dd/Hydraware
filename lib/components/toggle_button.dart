@@ -12,19 +12,15 @@ class ToggleButton extends StatefulWidget {
 class _ToggleButtonState extends State<ToggleButton> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 240),
-      child: FloatingActionButton(
-          backgroundColor: Theme.of(context).colorScheme.tertiary,
-          elevation: 30,
-          onPressed: () {
-            Navigator.pushNamed(context, widget.dir);
-          },
-          child: Icon(
-            widget.icon,
-            color: Theme.of(context).colorScheme.primary,
-            size: 30,
-          )),
-    );
+    return FloatingActionButton(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        onPressed: () {
+          Navigator.pushNamed(context, widget.dir);
+        },
+        child: Icon(
+          widget.icon,
+          color: Theme.of(context).colorScheme.primary,
+          size: 30,
+        ));
   }
 }

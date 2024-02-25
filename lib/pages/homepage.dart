@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hydraware/pages/home_screens/home_map_page.dart';
 import 'package:hydraware/pages/search_screens/search_forum.dart';
+import 'package:hydraware/pages/searchscreen.dart';
 import 'package:hydraware/pages/settings_screen.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +13,7 @@ class HomePage extends StatefulWidget {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    const MapApp(), 
+    const MapApp(),
     const SearchForumIntroScreen(),
     SettingsScreen(),
   ];
@@ -28,23 +29,36 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Image.asset('assets/images/icon.png', height: 80, width: 80),
+        title: Text("Hydraware",
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.onPrimary,
+                fontFamily: 'Cera Pro',
+                fontSize: 20)),
         actions: [
-          Text("Hydraware",
-              style: TextStyle(
-                  color: Colors.blue[800],
-                  fontFamily: 'Cera Pro',
-                  fontSize: 20)),
-          const SizedBox(width: 135),
-          IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/profile');
-            },
-            icon: Icon(
-              Icons.account_circle_outlined,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-          )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                icon: Icon(
+                  Icons.account_circle_outlined,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/helpline');
+                },
+                icon: Icon(
+                  Icons.sos,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
+            ],
+          ),
         ],
       ),
       body: Center(
@@ -56,44 +70,20 @@ class _HomePageState extends State<HomePage> {
           color: Theme.of(context).colorScheme.background,
           child: Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+                const EdgeInsets.symmetric(horizontal: 11.0, vertical: 15.0),
             child: GNav(
               haptic: true,
               backgroundColor: Theme.of(context).colorScheme.background,
-              color: Colors.white,
-              activeColor: Colors.white,
-              tabBackgroundColor: Colors.grey.shade900,
-              padding: const EdgeInsets.all(6),
+              color: Theme.of(context).colorScheme.onBackground,
+              activeColor: Theme.of(context).colorScheme.primary,
+              tabBackgroundColor:
+                  Theme.of(context).colorScheme.primary.withAlpha(60),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               gap: 6,
               tabs: [
-                GButton(
-                  icon: Icons.home,
-                  text: 'Home',
-                  textStyle: TextStyle(
-                      fontFamily: 'Cera Pro',
-                      color: Theme.of(context)
-                          .colorScheme
-                          .secondary
-                          .withBlue(200)),
-                ),
-                GButton(
-                    icon: Icons.search,
-                    text: 'Search',
-                    textStyle: TextStyle(
-                        fontFamily: 'Cera Pro',
-                        color: Theme.of(context)
-                            .colorScheme
-                            .secondary
-                            .withBlue(200))),
-                GButton(
-                    icon: Icons.settings,
-                    text: 'Settings',
-                    textStyle: TextStyle(
-                        fontFamily: 'Cera Pro',
-                        color: Theme.of(context)
-                            .colorScheme
-                            .secondary
-                            .withBlue(200)))
+                bottomNavBarButton(Icons.home, 'Home'),
+                bottomNavBarButton(Icons.search, 'Search'),
+                bottomNavBarButton(Icons.settings, 'Settings'),
               ],
               selectedIndex: widget._selectedIndex,
               onTabChange: (index) {
@@ -105,6 +95,15 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+    );
+  }
+
+  GButton bottomNavBarButton(IconData icon, String text) {
+    return GButton(
+      icon: icon,
+      text: text,
+      textStyle: TextStyle(
+          fontFamily: 'Cera Pro', color: Theme.of(context).colorScheme.primary),
     );
   }
 }

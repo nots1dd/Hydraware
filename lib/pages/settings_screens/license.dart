@@ -9,36 +9,38 @@ class License extends StatelessWidget {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text(
-            'License',
-            style: TextStyle(color: Colors.blueAccent, fontFamily: 'Cera Pro'),
-            textAlign: TextAlign.left,
-          ),
-          actions: [
-            IconButton(
+            automaticallyImplyLeading: false,
+            title: Text(
+              'License',
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.background,
+                  fontFamily: 'Cera Pro'),
+              textAlign: TextAlign.left,
+            ),
+            leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
               },
               icon: Icon(
                 Icons.arrow_back,
-                color: Theme.of(context).colorScheme.tertiary,
+                color: Theme.of(context).colorScheme.background,
               ),
-            )
-          ],
-        ),
+            )),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Center(
-              child: Column(
-                children: [
-                  const SizedBox(height: 10),
-                  Text(license,
-                      style: TextStyle(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 10),
+                    Text(license,
+                        style: const TextStyle(
                           fontSize: 14,
                           fontFamily: 'Cera Pro',
-                          color: Theme.of(context).colorScheme.tertiary)),
-                ],
+                        )),
+                  ],
+                ),
               ),
             ),
           ),

@@ -85,6 +85,7 @@ class _ForgotPwdState extends State<ForgotPwd> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Theme.of(context).colorScheme.onSurfaceVariant,
         automaticallyImplyLeading: false,
         title: const Text(
           'Forgot Password',
@@ -131,7 +132,7 @@ class _ForgotPwdState extends State<ForgotPwd> {
                   border:
                       Border.all(color: Theme.of(context).colorScheme.primary),
                   borderRadius: BorderRadius.circular(16),
-                  color: Theme.of(context).colorScheme.tertiary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 child: IconButton(
                   onPressed: passwordReset,
@@ -145,12 +146,15 @@ class _ForgotPwdState extends State<ForgotPwd> {
                         'Send',
                         style: TextStyle(
                             fontFamily: 'Cera Pro',
-                            color: Theme.of(context).colorScheme.secondary),
+                            color: Theme.of(context).colorScheme.onPrimary),
                       )),
                       const SizedBox(
                         width: 30,
                       ),
-                      const Icon(Icons.send),
+                      Icon(
+                        Icons.send,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
                     ],
                   ),
                   iconSize: 30,
@@ -171,7 +175,7 @@ class _ForgotPwdState extends State<ForgotPwd> {
                 border:
                     Border.all(color: Theme.of(context).colorScheme.primary),
                 borderRadius: BorderRadius.circular(16),
-                color: Theme.of(context).colorScheme.tertiary,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
               child: Text(
                 'Enter the mail ID that was logged into Hydraware and get the reset link',

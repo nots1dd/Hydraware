@@ -3,6 +3,7 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:hydraware/components/chat_textfield.dart';
 import 'package:hydraware/components/threedots.dart';
+import 'package:profanity_filter/profanity_filter.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -13,20 +14,21 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final List<String?> messages = [];
+  final filter = ProfanityFilter();
   bool _istyping = false;
   final ScrollController _scrollController = ScrollController();
-  RegExp profanityCheck =
-      RegExp(r"fuck|sex|porn|dick|pussy|shit|ass|homophobe|cunt$");
   void invalidAuth(String message) {
     showDialog(
       context: context,
+      barrierColor: Theme.of(context).colorScheme.onBackground.withAlpha(80),
       builder: (context) {
         return Dialog(
+          elevation: 1.0,
           child: Container(
             width: 30,
             height: 40,
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.tertiary,
+              // color: Theme.of(context).colorScheme.primary,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Center(
@@ -34,8 +36,9 @@ class _ChatScreenState extends State<ChatScreen> {
                 fit: BoxFit.fitWidth,
                 child: Text(message,
                     style: TextStyle(
-                        color: Theme.of(context).colorScheme.secondary,
-                        fontSize: 16)),
+                        color: Theme.of(context).colorScheme.onBackground,
+                        fontSize: 16,
+                        fontFamily: 'Cera Pro')),
               ),
             ),
           ),
@@ -43,6 +46,7 @@ class _ChatScreenState extends State<ChatScreen> {
       },
     );
   }
+
 
   final msgController = TextEditingController();
   @override
@@ -52,31 +56,38 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
+          foregroundColor: Theme.of(context).colorScheme.onPrimary,
           automaticallyImplyLeading: false,
-          title: Text("Hydraware Support",
-              style: TextStyle(
-                  color: Theme.of(context).colorScheme.tertiary,
-                  fontFamily: 'Cera Pro')),
-          actions: [
-            KeyboardDismissOnTap(
-              dismissOnCapturedTaps: true,
-              child: IconButton(
-                onPressed: () async {
-                  Future.delayed(const Duration(milliseconds: 200), () {
-                    Navigator.pop(context);
-                  });
-                },
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: Theme.of(context).colorScheme.tertiary,
-                ),
+          title: const Text("Hydraware Support",
+              style: TextStyle(fontFamily: 'Cera Pro')),
+          leading: KeyboardDismissOnTap(
+            dismissOnCapturedTaps: true,
+            child: IconButton(
+              onPressed: () async {
+                Future.delayed(const Duration(milliseconds: 200), () {
+                  Navigator.pop(context);
+                });
+              },
+              icon: const Icon(
+                Icons.arrow_back,
               ),
-            )
-          ],
+            ),
+          ),
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
         body: Column(
           children: [
+            Container(
+              constraints: const BoxConstraints(minWidth: double.infinity),
+              alignment: Alignment.center,
+              color: Theme.of(context).colorScheme.surface,
+              child: Text(
+                "You are currently talking to a chatbot",
+                style: TextStyle(
+                    fontFamily: 'Cera Pro',
+                    color: Theme.of(context).colorScheme.onBackground),
+              ),
+            ),
             Expanded(
               child: ListView.builder(
                   controller: _scrollController,
@@ -91,13 +102,79 @@ class _ChatScreenState extends State<ChatScreen> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              "${messages[index]}",
-                              style: TextStyle(
-                                  fontFamily: 'Cera Pro',
-                                  color:
-                                      Theme.of(context).colorScheme.tertiary),
-                              textAlign: TextAlign.left,
+                            Align(
+                              alignment: index % 2 == 0
+                                  ? Alignment.centerRight
+                                  : Alignment.centerLeft,
+                              child: FractionallySizedBox(
+                                widthFactor: 0.9,
+                                child: Align(
+                                  alignment: index % 2 == 0
+                                      ? Alignment.centerRight
+                                      : Alignment.centerLeft,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: index % 2 == 0
+                                          ? Theme.of(context)
+                                              .colorScheme
+                                              .primary
+                                          : Theme.of(context)
+                                              .colorScheme
+                                              .background,
+                                      borderRadius: BorderRadius.circular(9),
+                                      border: Border.all(
+                                        width: 1.0,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment: index % 2 == 0
+                                            ? CrossAxisAlignment.start
+                                            : CrossAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            index % 2 == 0
+                                                ? "You"
+                                                : "Hydraware Support",
+                                            style: TextStyle(
+                                                fontFamily: 'Cera Pro',
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.bold,
+                                                color: index % 2 == 0
+                                                    ? Theme.of(context)
+                                                        .colorScheme
+                                                        .background
+                                                    : Theme.of(context)
+                                                        .colorScheme
+                                                        .onBackground),
+                                            textAlign: TextAlign.justify,
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            "${messages[index]}",
+                                            style: TextStyle(
+                                                fontFamily: 'Cera Pro',
+                                                color: index % 2 == 0
+                                                    ? Theme.of(context)
+                                                        .colorScheme
+                                                        .background
+                                                    : Theme.of(context)
+                                                        .colorScheme
+                                                        .onBackground),
+                                            textAlign: TextAlign.left,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                             const SizedBox(
                               height: 3,
@@ -112,11 +189,14 @@ class _ChatScreenState extends State<ChatScreen> {
               child: ChatTextField(
                 msgController: msgController,
                 submit: () {
-                  if (profanityCheck.hasMatch(msgController.text)) {
+                  if (filter.hasProfanity(msgController.text)) {
                     invalidAuth("Please do not use profanity");
                     return;
+                  } else if (msgController.text.isEmpty) {
+                    invalidAuth('Empty message, try again!');
+                  } else {
+                    submit();
                   }
-                  submit();
                 },
               ),
             ),

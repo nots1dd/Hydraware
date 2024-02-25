@@ -16,23 +16,14 @@ class AuthService {
     UserCredential userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
 
-    // Check if the user exists in the Firestore collection
-    DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
+    FirebaseFirestore.instance
         .collection('Users')
         .doc(userCredential.user!.email)
-        .get();
-
-    if (!userSnapshot.exists) {
-      // If the user doesn't exist, set the default username
-      await FirebaseFirestore.instance
-          .collection('Users')
-          .doc(userCredential.user!.email)
-          .set({
-        'username': userCredential.user!.email!.split('@')[0],
-        'email': userCredential.user!.email,
-        'uid': userCredential.user!.uid,
-      });
-    }
+        .set({
+      'username': userCredential.user!.email!.split('@')[0],
+      'email': userCredential.user!.email,
+      'uid': userCredential.user!.uid,
+    });
 
     return userCredential;
   }
