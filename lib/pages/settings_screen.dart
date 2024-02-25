@@ -62,6 +62,7 @@ class SettingsScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(height: 10),
                 SettingItem(
                     context: context,
                     page: '/privacy',
@@ -132,7 +133,7 @@ class SettingsScreen extends StatelessWidget {
             label,
             style: TextStyle(
                 color: Theme.of(context).colorScheme.onBackground,
-                fontSize: 26,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Cera Pro'),
           ),

@@ -29,11 +29,8 @@ class _ThemePageState extends State<ThemePage> {
               height: 40,
               width: 120,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: toggleVal
-                    ? Colors.blueGrey.shade600
-                    : Colors.blueGrey.shade800,
-              ),
+                  borderRadius: BorderRadius.circular(20),
+                  color: Theme.of(context).colorScheme.surface),
               child: Stack(
                 children: <Widget>[
                   AnimatedPositioned(
@@ -58,15 +55,17 @@ class _ThemePageState extends State<ThemePage> {
                               return RotationTransition(
                                   turns: animation, child: child);
                             },
-                            child: toggleVal
+                            child: !toggleVal
                                 ? Icon(
                                     Icons.light_mode,
-                                    color: Colors.blue.shade300,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     key: UniqueKey(),
                                   )
                                 : Icon(
                                     Icons.dark_mode,
-                                    color: Colors.blue.shade700,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     key: UniqueKey(),
                                   ),
                           )))

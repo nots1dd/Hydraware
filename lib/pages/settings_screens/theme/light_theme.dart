@@ -5,7 +5,7 @@ ThemeData lightTheme = ThemeData(
     appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xff7287fd),
     ),
-    colorScheme: ColorScheme.light(
+    colorScheme: const ColorScheme.light(
       background: Color(0xffeff1f5),
       primary: Color(0xff7287fd),
       secondary: Color(0xff1e66f5),
