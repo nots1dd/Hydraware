@@ -99,17 +99,6 @@ class _ProfileState extends State<Profile> {
             ));
   }
 
-  void signInCheck() {
-    for (UserInfo userinfo in user.providerData) {
-      if (userinfo.providerId == 'password') {
-        editField();
-      } else {
-        prompt('Editing username with Google SignIn coming soon!');
-      }
-    }
-  }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

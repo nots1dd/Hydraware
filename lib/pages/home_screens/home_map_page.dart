@@ -14,7 +14,7 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
   void initState() {
     super.initState();
     controller = MapController(
-      initMapWithUserPosition: UserTrackingOption(
+      initMapWithUserPosition: const UserTrackingOption(
         enableTracking: true,
         unFollowUser: false,
       ),

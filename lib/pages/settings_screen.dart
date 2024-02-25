@@ -15,7 +15,7 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(20.0),
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -24,7 +24,7 @@ class SettingsScreen extends StatelessWidget {
               children: [
                 Container(
                   clipBehavior: Clip.hardEdge,
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       border: Border.all(
                           color: Theme.of(context)
@@ -37,7 +37,7 @@ class SettingsScreen extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/images/icon.png',
-                        height: 100,
+                        height: 80,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

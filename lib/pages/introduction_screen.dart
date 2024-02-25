@@ -54,7 +54,7 @@ class _IntroScreenState extends State<IntroScreen> {
                     controller: _controller,
                     count: 3,
                     effect: ExpandingDotsEffect(
-                        dotColor: Colors.blue[800]!,
+                        dotColor: Colors.blueGrey[300]!,
                         activeDotColor: Colors.blue[900]!),
                   ),
                   onLastPage

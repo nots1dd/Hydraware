@@ -174,7 +174,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       if (snapshot.data == null || posts.isEmpty) {
                         return Center(
                             child: Padding(
-                          padding: EdgeInsets.all(25),
+                          padding: const EdgeInsets.all(25),
                           child: Text(
                             'No posts yet!',
                             style: TextStyle(

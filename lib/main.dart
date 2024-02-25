@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         '/license': (BuildContext context) => const License(),
         '/theme': (BuildContext context) => const ThemePage(),
         '/settings': (BuildContext context) => SettingsScreen(),
-        '/profile': (BuildContext context) => Profile(),
+        '/profile': (BuildContext context) => const Profile(),
         '/login': (BuildContext context) => const AuthPage(),
         '/chat': (BuildContext context) => const ChatScreen(),
         '/forgotpwd': (BuildContext context) => const ForgotPwd(),

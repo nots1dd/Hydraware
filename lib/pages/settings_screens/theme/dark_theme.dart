@@ -5,7 +5,7 @@ ThemeData darkTheme = ThemeData(
     appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xff89b4fa),
     ),
-    colorScheme: ColorScheme.dark(
+    colorScheme: const ColorScheme.dark(
       background: Color(0xff1e1e2e),
       primary: Color(0xff89b4fa),
       secondary: Color(0xffb4befe),

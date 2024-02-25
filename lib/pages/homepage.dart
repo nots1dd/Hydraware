@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hydraware/pages/home_screens/home_map_page.dart';
 import 'package:hydraware/pages/search_screens/search_forum.dart';
-import 'package:hydraware/pages/searchscreen.dart';
 import 'package:hydraware/pages/settings_screen.dart';
 
 class HomePage extends StatefulWidget {

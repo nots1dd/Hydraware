@@ -60,7 +60,7 @@ class _ScreenBState extends State<ScreenB> {
       }
     } else {
       // Permission already granted
-      prompt('Location permission already granted');
+      return;
     }
   }
 

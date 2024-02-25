@@ -1,6 +1,5 @@
 import 'package:animated_background/animated_background.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:hydraware/components/toggle_button.dart';
 
 class SearchForumIntroScreen extends StatefulWidget {
