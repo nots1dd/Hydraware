@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class SearchAnnouncements extends StatefulWidget {
   const SearchAnnouncements({super.key});
 

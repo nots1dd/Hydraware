@@ -23,7 +23,8 @@ Future main() async {
   Gemini.init(apiKey: dotenv.env['GEMINI_API_KEY_2']!);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(ChangeNotifierProvider(create: (context) => ThemeProvider(), child: const MyApp()));
+  runApp(ChangeNotifierProvider(
+      create: (context) => ThemeProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -34,8 +35,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/',
-      routes: <String, WidgetBuilder> {
-        '/privacy': (BuildContext context) => const  PrivacyPolicy(),
+      routes: <String, WidgetBuilder>{
+        '/privacy': (BuildContext context) => const PrivacyPolicy(),
         '/license': (BuildContext context) => const License(),
         '/theme': (BuildContext context) => const ThemePage(),
         '/settings': (BuildContext context) => SettingsScreen(),

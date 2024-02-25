@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hydraware/pages/settings_screens/theme/dark_theme.dart';
-import 'package:hydraware/pages/settings_screens/theme/light_theme.dart'; 
+import 'package:hydraware/pages/settings_screens/theme/light_theme.dart';
 
 class ThemeProvider with ChangeNotifier {
   ThemeData _selectedTheme = lightTheme;

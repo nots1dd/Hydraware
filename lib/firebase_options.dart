@@ -77,5 +77,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'logintest-8baaf.appspot.com',
     iosBundleId: 'com.example.login.RunnerTests',
   );
-
 }

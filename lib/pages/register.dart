@@ -16,7 +16,7 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-  class _RegisterPageState extends State<RegisterPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
@@ -24,74 +24,78 @@ class RegisterPage extends StatefulWidget {
   bool isPassword = true;
 
   void invalidAuth(String message) {
-
     showDialog(
-      context: context, 
+      context: context,
       builder: (context) {
         return Dialog(
-        child: Container(
-          width: 30,
-          height: 40,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.tertiary,
-            borderRadius: BorderRadius.circular(8),),
-        child: Center(
-          child: FittedBox(
-            fit: BoxFit.fitWidth,
-            child: Text(message, style: TextStyle(
-              color: Theme.of(context).colorScheme.secondary,
-              fontSize: 16,fontFamily: 'Cera Pro')),
+          child: Container(
+            width: 30,
+            height: 40,
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.tertiary,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Center(
+              child: FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Text(message,
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontSize: 16,
+                        fontFamily: 'Cera Pro')),
+              ),
+            ),
           ),
-        ),
-        ),
-         
-      );
-        },
         );
+      },
+    );
   }
 
   void signUserUp() async {
     showDialog(
-      context: context, 
+      context: context,
       builder: (context) {
-      return const Center(
-        child: CircularProgressIndicator(),
+        return const Center(
+          child: CircularProgressIndicator(),
         );
       },
     );
     try {
       RegExp regExp = RegExp(r"@(?:gmail|yahoo|hotmail|outlook)\.com$");
-      if (regExp.hasMatch(emailController.text.trim()) == false){
-      Navigator.pop(context);
-      invalidAuth('Please enter a valid mail ID!');
-      return;
+      if (regExp.hasMatch(emailController.text.trim()) == false) {
+        Navigator.pop(context);
+        invalidAuth('Please enter a valid mail ID!');
+        return;
       }
-       if(passwordController.text.trim() != confirmpasswordController.text.trim()) {
+      if (passwordController.text.trim() !=
+          confirmpasswordController.text.trim()) {
         Navigator.pop(context);
         invalidAuth("Passwords do not match");
-      return;
-    }
-      if (passwordController.text.trim() == confirmpasswordController.text.trim()) { 
-        UserCredential userCred = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text.trim(), 
-        password: passwordController.text.trim()
-        );
-        FirebaseFirestore.instance.collection('Users').doc(userCred.user!.email).set({
+        return;
+      }
+      if (passwordController.text.trim() ==
+          confirmpasswordController.text.trim()) {
+        UserCredential userCred = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: emailController.text.trim(),
+                password: passwordController.text.trim());
+        FirebaseFirestore.instance
+            .collection('Users')
+            .doc(userCred.user!.email)
+            .set({
           'username': emailController.text.trim().split('@')[0],
           'email': emailController.text.trim(),
           'uid': userCred.user!.uid,
         });
       } else {
         invalidAuth('Passwords do not match');
-
       }
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       invalidAuth(e.message!);
-
-  }}
-
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,81 +103,132 @@ class RegisterPage extends StatefulWidget {
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 10),
-                GestureDetector(
-                  onTap: () => {
-                    Navigator.pushNamed(context, '/')
-                  },
-                  child: Lottie.asset('assets/images/Hydraware_animation_2.json', width: 130, height: 130)),
-                const SizedBox(height: 20),
-                Text('Welcome to Hydraware!', style: TextStyle(color: Colors.blue[300],fontSize: 16,fontWeight: FontWeight.bold,fontFamily: 'Cera Pro')),
-                const SizedBox(height: 25),
-                MyTextField(controller: emailController,hintText: 'Enter mail ID',obscureText: false,),
-                const SizedBox(height: 10),
-                pwdTextField(controller: passwordController, hintText: 'Enter your password', isPassword: isPassword), //textfield.dart for config
-                const SizedBox(height: 10),
-                pwdTextField(controller: confirmpasswordController, hintText: 'Confirm password', isPassword: isPassword),
-                const SizedBox(height: 10),
-            
-                const SizedBox(height: 25,),
+            child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 10),
+              GestureDetector(
+                  onTap: () => {Navigator.pushNamed(context, '/')},
+                  child: Lottie.asset(
+                      'assets/images/Hydraware_animation_2.json',
+                      width: 130,
+                      height: 130)),
+              const SizedBox(height: 20),
+              Text('Welcome to Hydraware!',
+                  style: TextStyle(
+                      color: Colors.blue[300],
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Cera Pro')),
+              const SizedBox(height: 25),
+              MyTextField(
+                controller: emailController,
+                hintText: 'Enter mail ID',
+                obscureText: false,
+              ),
+              const SizedBox(height: 10),
+              pwdTextField(
+                  controller: passwordController,
+                  hintText: 'Enter your password',
+                  isPassword: isPassword), //textfield.dart for config
+              const SizedBox(height: 10),
+              pwdTextField(
+                  controller: confirmpasswordController,
+                  hintText: 'Confirm password',
+                  isPassword: isPassword),
+              const SizedBox(height: 10),
 
-                MyButton(onTap: signUserUp, text: 'Sign up!',),
-            
-                const SizedBox(height: 25,),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    children: [
-                      Expanded(child: Divider(thickness: 0.75,color: Colors.grey[550],)),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text(
-                          'Or continue with',
-                          style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold,fontFamily: 'Cera Pro'),),
-                      ),
-                      Expanded(child: Divider(thickness: 0.75,color: Colors.grey[550],))
-                    ],
-                  ),
-                ),
-            
-                const SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              const SizedBox(
+                height: 25,
+              ),
+
+              MyButton(
+                onTap: signUserUp,
+                text: 'Sign up!',
+              ),
+
+              const SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
                   children: [
-                  SquareTile(imagepath: 'assets/images/google.png', onTap: () => AuthService().signInWithGoogle(),),
-                  const SizedBox( width: 25,),
-                  SquareTile(imagepath: 'assets/images/apple.png',onTap: () {
-                    invalidAuth('Apple Sign In not available yet!');
-                  },),]),
-            
-                  const SizedBox(height: 18,),
-            
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                    Text('Already a member?',style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold,fontFamily: 'Cera Pro')),
-                    const SizedBox(width: 10,),
-                    GestureDetector(
-                      onTap: widget.onTap,
-                      child: const Text(
-                        'Login now!',
+                    Expanded(
+                        child: Divider(
+                      thickness: 0.75,
+                      color: Colors.grey[550],
+                    )),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        'Or continue with',
                         style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,fontFamily: 'Cera Pro'),),
+                            color: Theme.of(context).colorScheme.tertiary,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Cera Pro'),
+                      ),
                     ),
-                  ],)
-            
-            
+                    Expanded(
+                        child: Divider(
+                      thickness: 0.75,
+                      color: Colors.grey[550],
+                    ))
                   ],
-                
-            ),
-          )
-        ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 20,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                SquareTile(
+                  imagepath: 'assets/images/google.png',
+                  onTap: () => AuthService().signInWithGoogle(),
+                ),
+                const SizedBox(
+                  width: 25,
+                ),
+                SquareTile(
+                  imagepath: 'assets/images/apple.png',
+                  onTap: () {
+                    invalidAuth('Apple Sign In not available yet!');
+                  },
+                ),
+              ]),
+
+              const SizedBox(
+                height: 18,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Already a member?',
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.tertiary,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Cera Pro')),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: const Text(
+                      'Login now!',
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Cera Pro'),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        )),
       ),
     );
   }
-  }
+}

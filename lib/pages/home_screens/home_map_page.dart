@@ -7,20 +7,18 @@ class MapApp extends StatefulWidget {
   State<StatefulWidget> createState() => MapAppState();
 }
 
-class MapAppState extends State<MapApp>
-    with AutomaticKeepAliveClientMixin {
+class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
   late MapController controller;
 
   @override
   void initState() {
     super.initState();
     controller = MapController(
-        initMapWithUserPosition: UserTrackingOption(
-           enableTracking: true,
-           unFollowUser: false,
-        ),
+      initMapWithUserPosition: UserTrackingOption(
+        enableTracking: true,
+        unFollowUser: false,
+      ),
     );
-    
   }
 
   @override
@@ -30,28 +28,29 @@ class MapAppState extends State<MapApp>
       body: Stack(
         children: [
           OSMFlutter(
-            controller: controller,
-            osmOption: OSMOption(
-              showZoomController: true,
-              enableRotationByGesture: false,
-              userLocationMarker: UserLocationMaker(
-                personMarker: MarkerIcon(
-                  icon: Icon(Icons.person_pin_circle, color: Colors.blue, size:100),
-                  ), 
-                directionArrowMarker: MarkerIcon(
-                  icon: Icon(Icons.arrow_upward, color: Colors.blue, size:100),
+              controller: controller,
+              osmOption: OSMOption(
+                showZoomController: true,
+                enableRotationByGesture: false,
+                userLocationMarker: UserLocationMaker(
+                  personMarker: MarkerIcon(
+                    icon: Icon(Icons.person_pin_circle,
+                        color: Colors.blue, size: 100),
+                  ),
+                  directionArrowMarker: MarkerIcon(
+                    icon:
+                        Icon(Icons.arrow_upward, color: Colors.blue, size: 100),
+                  ),
                 ),
-              ),
-              zoomOption: ZoomOption(
-                initZoom: 10,
-              ),
-            )
-          ), 
+                zoomOption: ZoomOption(
+                  initZoom: 10,
+                ),
+              )),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await controller.setZoom(zoomLevel:10);
+          await controller.setZoom(zoomLevel: 10);
           await controller.currentLocation();
         },
         child: const Icon(Icons.my_location, color: Colors.white),
@@ -64,6 +63,7 @@ class MapAppState extends State<MapApp>
     controller.dispose();
     super.dispose();
   }
+
   @override
   bool get wantKeepAlive => true;
 }

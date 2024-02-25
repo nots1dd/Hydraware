@@ -10,7 +10,6 @@ class AuthMiddle extends StatefulWidget {
 }
 
 class _AuthMiddleState extends State<AuthMiddle> {
-
   bool showRegisterPage = true;
 
   void togglePages() {
@@ -23,9 +22,10 @@ class _AuthMiddleState extends State<AuthMiddle> {
   Widget build(BuildContext context) {
     if (showRegisterPage) {
       return RegisterPage(onTap: togglePages);
-    }
-    else {
-      return LoginPage(onTap: togglePages,);
+    } else {
+      return LoginPage(
+        onTap: togglePages,
+      );
     }
   }
 }
