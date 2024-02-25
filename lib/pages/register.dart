@@ -26,13 +26,15 @@ class _RegisterPageState extends State<RegisterPage> {
   void invalidAuth(String message) {
     showDialog(
       context: context,
+      barrierColor: Theme.of(context).colorScheme.onBackground.withAlpha(80),
       builder: (context) {
         return Dialog(
+          elevation: 1.0,
           child: Container(
             width: 30,
             height: 40,
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.tertiary,
+              // color: Theme.of(context).colorScheme.primary,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Center(
@@ -40,7 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 fit: BoxFit.fitWidth,
                 child: Text(message,
                     style: TextStyle(
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: Theme.of(context).colorScheme.onBackground,
                         fontSize: 16,
                         fontFamily: 'Cera Pro')),
               ),
@@ -117,7 +119,7 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 20),
               Text('Welcome to Hydraware!',
                   style: TextStyle(
-                      color: Colors.blue[300],
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Cera Pro')),
@@ -158,14 +160,14 @@ class _RegisterPageState extends State<RegisterPage> {
                     Expanded(
                         child: Divider(
                       thickness: 0.75,
-                      color: Colors.grey[550],
+                      color: Theme.of(context).colorScheme.onBackground,
                     )),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
                         'Or continue with',
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.tertiary,
+                            color: Theme.of(context).colorScheme.onBackground,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Cera Pro'),
                       ),
@@ -173,7 +175,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Expanded(
                         child: Divider(
                       thickness: 0.75,
-                      color: Colors.grey[550],
+                      color: Theme.of(context).colorScheme.onBackground,
                     ))
                   ],
                 ),
@@ -207,7 +209,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Text('Already a member?',
                       style: TextStyle(
-                          color: Theme.of(context).colorScheme.tertiary,
+                          color: Theme.of(context).colorScheme.onBackground,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Cera Pro')),
                   const SizedBox(
@@ -215,10 +217,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   GestureDetector(
                     onTap: widget.onTap,
-                    child: const Text(
+                    child: Text(
                       'Login now!',
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Theme.of(context).colorScheme.primary,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Cera Pro'),
                     ),

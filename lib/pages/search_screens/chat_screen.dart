@@ -52,11 +52,10 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
+          foregroundColor: Theme.of(context).colorScheme.onPrimary,
           automaticallyImplyLeading: false,
           title: Text("Hydraware Support",
-              style: TextStyle(
-                  color: Theme.of(context).colorScheme.tertiary,
-                  fontFamily: 'Cera Pro')),
+              style: TextStyle(fontFamily: 'Cera Pro')),
           actions: [
             KeyboardDismissOnTap(
               dismissOnCapturedTaps: true,
@@ -68,7 +67,6 @@ class _ChatScreenState extends State<ChatScreen> {
                 },
                 icon: Icon(
                   Icons.arrow_back,
-                  color: Theme.of(context).colorScheme.tertiary,
                 ),
               ),
             )
@@ -95,8 +93,9 @@ class _ChatScreenState extends State<ChatScreen> {
                               "${messages[index]}",
                               style: TextStyle(
                                   fontFamily: 'Cera Pro',
-                                  color:
-                                      Theme.of(context).colorScheme.tertiary),
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onBackground),
                               textAlign: TextAlign.left,
                             ),
                             const SizedBox(

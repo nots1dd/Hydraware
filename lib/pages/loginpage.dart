@@ -141,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 30),
               Text('Welcome back to Hydraware!',
                   style: TextStyle(
-                      color: Colors.blue[300],
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Cera Pro')),
@@ -167,9 +167,9 @@ class _LoginPageState extends State<LoginPage> {
                       onTap: () {
                         Navigator.pushNamed(context, '/forgotpwd');
                       },
-                      child: const Text('Forgot password?',
+                      child: Text('Forgot password?',
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Theme.of(context).colorScheme.onBackground,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Cera Pro')),
                     ),
@@ -203,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(
                         'Or continue with',
                         style: TextStyle(
-                            color: Theme.of(context).colorScheme.tertiary,
+                            color: Theme.of(context).colorScheme.onBackground,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Cera Pro'),
                       ),
@@ -245,7 +245,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Text('Not a member?',
                       style: TextStyle(
-                          color: Theme.of(context).colorScheme.tertiary,
+                          color: Theme.of(context).colorScheme.onBackground,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Cera Pro')),
                   const SizedBox(
@@ -253,10 +253,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   GestureDetector(
                     onTap: widget.onTap,
-                    child: const Text(
+                    child: Text(
                       'Register now!',
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Theme.of(context).colorScheme.primary,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Cera Pro'),
                     ),

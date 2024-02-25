@@ -50,7 +50,7 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
               )),
         ],
       ),
-      
+
       floatingActionButton: Padding(padding: EdgeInsets.all(10),
         child: Row(
           children: <Widget>[

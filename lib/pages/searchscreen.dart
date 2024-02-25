@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:hydraware/components/list_tile.dart';
 import 'package:hydraware/components/toggle_button.dart';
 import 'package:hydraware/components/animated_btn.dart';
 import 'package:hydraware/pages/search_screens/posts/posts_db.dart';
 import 'package:intl/intl.dart';
+
+import '../components/list_tile.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
