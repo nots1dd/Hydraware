@@ -34,7 +34,7 @@ class License extends StatelessWidget {
                   children: [
                     const SizedBox(height: 10),
                     Text(license,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 14,
                             fontFamily: 'Cera Pro',
                         )),
