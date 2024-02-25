@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hydraware/pages/home_screens/home_map_page.dart';
+import 'package:hydraware/pages/search_screens/search_forum.dart';
 import 'package:hydraware/pages/searchscreen.dart';
 import 'package:hydraware/pages/settings_screen.dart';
 
@@ -13,7 +14,7 @@ class HomePage extends StatefulWidget {
 
   final List<Widget> _widgetOptions = <Widget>[
     MapApp(),
-    const SearchScreen(),
+    const SearchForumIntroScreen(),
     SettingsScreen(),
   ];
 
@@ -66,7 +67,8 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: Theme.of(context).colorScheme.background,
               color: Theme.of(context).colorScheme.onBackground,
               activeColor: Theme.of(context).colorScheme.primary,
-              tabBackgroundColor: Theme.of(context).colorScheme.primary.withAlpha(60),
+              tabBackgroundColor:
+                  Theme.of(context).colorScheme.primary.withAlpha(60),
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               gap: 6,
               tabs: [
@@ -89,11 +91,10 @@ class _HomePageState extends State<HomePage> {
 
   GButton bottomNavBarButton(IconData icon, String text) {
     return GButton(
-        icon: icon,
-        text: text,
-        textStyle: TextStyle(
-            fontFamily: 'Cera Pro',
-            color: Theme.of(context).colorScheme.primary),
+      icon: icon,
+      text: text,
+      textStyle: TextStyle(
+          fontFamily: 'Cera Pro', color: Theme.of(context).colorScheme.primary),
     );
   }
 }

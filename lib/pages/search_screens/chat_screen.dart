@@ -52,11 +52,12 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
-            foregroundColor: Theme.of(context).colorScheme.onPrimary,
-            automaticallyImplyLeading: false,
-            title: Text("Hydraware Support",
-                style: TextStyle(fontFamily: 'Cera Pro')),
-            leading: KeyboardDismissOnTap(
+          foregroundColor: Theme.of(context).colorScheme.onPrimary,
+          automaticallyImplyLeading: false,
+          title: Text("Hydraware Support",
+              style: TextStyle(fontFamily: 'Cera Pro')),
+          actions: [
+            KeyboardDismissOnTap(
               dismissOnCapturedTaps: true,
               child: IconButton(
                 onPressed: () async {
@@ -64,11 +65,13 @@ class _ChatScreenState extends State<ChatScreen> {
                     Navigator.pop(context);
                   });
                 },
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back,
                 ),
               ),
-            )),
+            )
+          ],
+        ),
         backgroundColor: Theme.of(context).colorScheme.background,
         body: Column(
           children: [
@@ -90,8 +93,9 @@ class _ChatScreenState extends State<ChatScreen> {
                               "${messages[index]}",
                               style: TextStyle(
                                   fontFamily: 'Cera Pro',
-                                  color:
-                                      Theme.of(context).colorScheme.onBackground),
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onBackground),
                               textAlign: TextAlign.left,
                             ),
                             const SizedBox(

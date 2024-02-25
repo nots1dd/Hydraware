@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
-
-
 class ChatTextField extends StatefulWidget {
   final submit;
   final msgController;
-  const ChatTextField({super.key,required this.msgController,required this.submit});
+  const ChatTextField(
+      {super.key, required this.msgController, required this.submit});
 
   @override
   State<ChatTextField> createState() => _ChatTextFieldState();
 }
 
 class _ChatTextFieldState extends State<ChatTextField> {
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,7 +22,8 @@ class _ChatTextFieldState extends State<ChatTextField> {
               hintText: 'Type a message',
               hintStyle: const TextStyle(fontFamily: 'Cera Pro'),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
+                borderSide:
+                    BorderSide(color: Theme.of(context).colorScheme.primary),
                 borderRadius: BorderRadius.circular(15),
               ),
               focusedBorder: OutlineInputBorder(
@@ -35,7 +34,8 @@ class _ChatTextFieldState extends State<ChatTextField> {
               filled: true,
               suffixIcon: GestureDetector(
                 onTap: widget.submit,
-                child: Icon(Icons.send, color: Theme.of(context).colorScheme.tertiary),
+                child: Icon(Icons.send,
+                    color: Theme.of(context).colorScheme.tertiary),
               ),
             ),
           ),
@@ -43,6 +43,4 @@ class _ChatTextFieldState extends State<ChatTextField> {
       ],
     );
   }
-
 }
-

@@ -7,13 +7,13 @@ class ScreenB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue[500],
-      child: Column(
-        children: [
-          const SizedBox(height: 60),
-          Lottie.asset('assets/images/Hydraware_animation_1.json', width: 200, height: 200),
-        ],
-      )
-    );
+        color: Colors.blue[500],
+        child: Column(
+          children: [
+            const SizedBox(height: 60),
+            Lottie.asset('assets/images/Hydraware_animation_1.json',
+                width: 200, height: 200),
+          ],
+        ));
   }
 }

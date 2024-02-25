@@ -1,72 +1,71 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:hydraware/components/tile_providers.dart';
-import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
+import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+
 class MapApp extends StatefulWidget {
+  const MapApp({super.key});
   @override
-  _MapAppState createState() => _MapAppState();
+  State<StatefulWidget> createState() => MapAppState();
 }
 
-class _MapAppState extends State<MapApp> {
-  late AlignOnUpdate _alignPositionOnUpdate;
-  late final StreamController<double?> _alignPositionStreamController;
+class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
+  late MapController controller;
 
   @override
   void initState() {
     super.initState();
-    _alignPositionOnUpdate = AlignOnUpdate.always;
-    _alignPositionStreamController = StreamController<double?>();
-  } 
-
-  @override
-  void dispose() {
-    _alignPositionStreamController.close();
-    super.dispose();
+    controller = MapController(
+      initMapWithUserPosition: UserTrackingOption(
+        enableTracking: true,
+        unFollowUser: false,
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return FlutterMap(
-      options: MapOptions(
-        initialZoom: 10,
-        // Stop aligning the location marker to the center of the map widget
-        // if user interacted with the map.
-        onPositionChanged: (MapPosition position, bool hasGesture) {
-          if (hasGesture && _alignPositionOnUpdate != AlignOnUpdate.never) {
-            setState(
-              () => _alignPositionOnUpdate = AlignOnUpdate.never,
-            );
-          }
-        },
+    super.build(context);
+    return Scaffold(
+      body: Stack(
+        children: [
+          OSMFlutter(
+              controller: controller,
+              osmOption: OSMOption(
+                showZoomController: true,
+                enableRotationByGesture: false,
+                userLocationMarker: UserLocationMaker(
+                  personMarker: MarkerIcon(
+                    icon: Icon(Icons.person_pin_circle,
+                        color: Colors.blue, size: 100),
+                  ),
+                  directionArrowMarker: MarkerIcon(
+                    icon:
+                        Icon(Icons.arrow_upward, color: Colors.blue, size: 100),
+                  ),
+                ),
+                zoomOption: ZoomOption(
+                  initZoom: 10,
+                ),
+              )),
+        ],
       ),
-      // ignore: sort_child_properties_last
-      children: [
-        openStreetMapTileLayer,
-        CurrentLocationLayer(
-          alignPositionStream: _alignPositionStreamController.stream,
-          alignPositionOnUpdate: _alignPositionOnUpdate,
-        ),
-        Align(
-          alignment: Alignment.bottomRight,
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: FloatingActionButton(
-              backgroundColor: Theme.of(context).colorScheme.background,
-              onPressed: () {
-                setState(
-                  () => _alignPositionOnUpdate = AlignOnUpdate.always,
-                );
-                _alignPositionStreamController.add(10);
-              },
-              child: Icon(
-                Icons.my_location,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-        ),
-      ],
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        onPressed: () async {
+          await controller.setZoom(zoomLevel: 10);
+          await controller.currentLocation();
+        },
+        child: Icon(Icons.my_location,
+            color: Theme.of(context).colorScheme.primary),
+      ),
     );
   }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  bool get wantKeepAlive => true;
 }

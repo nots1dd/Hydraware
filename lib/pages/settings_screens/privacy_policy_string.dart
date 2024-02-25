@@ -1,5 +1,4 @@
-String privacyPolicy = 
-"""1. Introduction
+String privacyPolicy = """1. Introduction
 Welcome to Hydraware Inc.
 
 Hydraware Inc. (“us”, “we”, or “our”) operates https://www.boilerplate.co, https://beta.boilerplate.co, https://app.boilerplate.co, any other related Boilerplate.co site, and Boilerplate mobile application (hereinafter referred to as “Service”).

@@ -25,12 +25,12 @@ class _pwdTextFieldState extends State<pwdTextField> {
         controller: widget.controller,
         decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
-                borderSide:
-                    BorderSide(color: Theme.of(context).colorScheme.onBackground),
+                borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.onBackground),
                 borderRadius: BorderRadius.circular(20)),
             focusedBorder: OutlineInputBorder(
-                borderSide:
-                    BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.5),
+                borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.primary, width: 2.5),
                 borderRadius: BorderRadius.circular(20)),
             fillColor: Theme.of(context).colorScheme.onPrimary,
             filled: true,

@@ -8,9 +8,8 @@ class ScreenC extends StatelessWidget {
     return Container(
       color: Colors.blue[400],
       child: const Center(
-        child: Text('Screen C', style: TextStyle(
-          color: Colors.white,
-          fontSize: 24)),
+        child: Text('Screen C',
+            style: TextStyle(color: Colors.white, fontSize: 24)),
       ),
     );
   }

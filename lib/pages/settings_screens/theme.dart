@@ -12,7 +12,6 @@ class ThemePage extends StatefulWidget {
 }
 
 class _ThemePageState extends State<ThemePage> {
-
   bool toggleVal = false;
 
   @override
@@ -31,33 +30,46 @@ class _ThemePageState extends State<ThemePage> {
               width: 120,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: toggleVal ? Colors.blueGrey.shade600 : Colors.blueGrey.shade800,
+                color: toggleVal
+                    ? Colors.blueGrey.shade600
+                    : Colors.blueGrey.shade800,
               ),
               child: Stack(
-                children: <Widget> [
+                children: <Widget>[
                   AnimatedPositioned(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeIn,
-                    top: 3.0,
-                    left: toggleVal ? 60.0 : 0.0,
-                    right: toggleVal ? 0.0 : 60.0,
-                    bottom: 3.0,
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          toggleVal = !toggleVal;
-                          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-                        });
-                      },
-                      child: AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 150),
-                        transitionBuilder: (Widget child, Animation<double> animation) {
-                          return RotationTransition(turns: animation, child: child);
-                        },
-                        child: toggleVal ? Icon(Icons.light_mode, color: Colors.blue.shade300, key: UniqueKey(),) : Icon(Icons.dark_mode, color: Colors.blue.shade700, key: UniqueKey(),),
-                      )
-                    )
-                    )
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeIn,
+                      top: 3.0,
+                      left: toggleVal ? 60.0 : 0.0,
+                      right: toggleVal ? 0.0 : 60.0,
+                      bottom: 3.0,
+                      child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              toggleVal = !toggleVal;
+                              Provider.of<ThemeProvider>(context, listen: false)
+                                  .toggleTheme();
+                            });
+                          },
+                          child: AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 150),
+                            transitionBuilder:
+                                (Widget child, Animation<double> animation) {
+                              return RotationTransition(
+                                  turns: animation, child: child);
+                            },
+                            child: toggleVal
+                                ? Icon(
+                                    Icons.light_mode,
+                                    color: Colors.blue.shade300,
+                                    key: UniqueKey(),
+                                  )
+                                : Icon(
+                                    Icons.dark_mode,
+                                    color: Colors.blue.shade700,
+                                    key: UniqueKey(),
+                                  ),
+                          )))
                 ],
               ),
             ),

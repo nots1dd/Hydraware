@@ -37,30 +37,51 @@ class _IntroScreenState extends State<IntroScreen> {
             ],
           ),
           Container(
-            alignment: const Alignment(0,0.8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GestureDetector(
-                onTap: () => {
-                  Navigator.pushNamed(context, '/login')
-                },
-                child: const Text('Skip',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 17),)),
-                SmoothPageIndicator(controller: _controller, count: 3,effect: ExpandingDotsEffect(dotColor: Colors.blue[800]!,activeDotColor: Colors.blue[900]!),),
-                onLastPage? GestureDetector(
-                  onTap: () => {
-                    Navigator.pushNamed(context, '/login')
-                  },
-                  child: const Text('Done', style: TextStyle(fontSize: 17, color: Colors.black,fontWeight: FontWeight.bold,)))
-                  : GestureDetector(
-                    onTap: () => {
-                      _controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeIn)
-                    },
-                    child: const Text('Next', style: TextStyle(fontSize: 17, color: Colors.black,fontWeight: FontWeight.bold,))),
-              ],
-            ))
+              alignment: const Alignment(0, 0.8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                      onTap: () => {Navigator.pushNamed(context, '/login')},
+                      child: const Text(
+                        'Skip',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17),
+                      )),
+                  SmoothPageIndicator(
+                    controller: _controller,
+                    count: 3,
+                    effect: ExpandingDotsEffect(
+                        dotColor: Colors.blue[800]!,
+                        activeDotColor: Colors.blue[900]!),
+                  ),
+                  onLastPage
+                      ? GestureDetector(
+                          onTap: () => {Navigator.pushNamed(context, '/login')},
+                          child: const Text('Done',
+                              style: TextStyle(
+                                fontSize: 17,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              )))
+                      : GestureDetector(
+                          onTap: () => {
+                                _controller.nextPage(
+                                    duration: const Duration(milliseconds: 500),
+                                    curve: Curves.easeIn)
+                              },
+                          child: const Text('Next',
+                              style: TextStyle(
+                                fontSize: 17,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ))),
+                ],
+              ))
         ],
-        ),
-      );
+      ),
+    );
   }
 }
