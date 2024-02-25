@@ -3,6 +3,7 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:hydraware/components/chat_textfield.dart';
 import 'package:hydraware/components/threedots.dart';
+import 'package:profanity_filter/profanity_filter.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -13,10 +14,9 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final List<String?> messages = [];
+  final filter = ProfanityFilter();
   bool _istyping = false;
   final ScrollController _scrollController = ScrollController();
-  RegExp profanityCheck =
-      RegExp(r"fuck|sex|porn|dick|pussy|shit|ass|homophobe|cunt$");
   void invalidAuth(String message) {
     showDialog(
       context: context,
@@ -111,7 +111,7 @@ class _ChatScreenState extends State<ChatScreen> {
               child: ChatTextField(
                 msgController: msgController,
                 submit: () {
-                  if (profanityCheck.hasMatch(msgController.text)) {
+                  if (filter.hasProfanity(msgController.text)) {
                     invalidAuth("Please do not use profanity");
                     return;
                   }
