@@ -6,6 +6,9 @@ import 'package:hydraware/pages/auth/authpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hydraware/pages/introduction_screen.dart';
 import 'package:hydraware/pages/search_screens/chat_screen.dart';
+import 'package:hydraware/pages/search_screens/posts/post_screen.dart';
+import 'package:hydraware/pages/search_screens/search_announcements.dart';
+import 'package:hydraware/pages/searchscreen.dart';
 import 'package:hydraware/pages/settings_screen.dart';
 import 'package:hydraware/pages/settings_screens/license.dart';
 import 'package:hydraware/pages/settings_screens/privacy_policy.dart';
@@ -40,6 +43,9 @@ class MyApp extends StatelessWidget {
         '/login': (BuildContext context) => const AuthPage(),
         '/chat': (BuildContext context) => const ChatScreen(),
         '/forgotpwd': (BuildContext context) => const ForgotPwd(),
+        '/search': (BuildContext context) => const SearchScreen(),
+        '/announcement': (BuildContext context) => const SearchAnnouncements(),
+        '/post': (BuildContext context) => PostScreen(),
       },
       theme: Provider.of<ThemeProvider>(context).getTheme,
       debugShowCheckedModeBanner: false,
