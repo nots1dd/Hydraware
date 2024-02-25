@@ -15,17 +15,17 @@ class _SearchForumIntroScreenState extends State<SearchForumIntroScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[700],
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: AnimatedBackground(
         behaviour: RandomParticleBehaviour(
-          options: const ParticleOptions(
-            spawnMaxRadius: 50,
+          options: ParticleOptions(
+            spawnMaxRadius: 30,
             spawnMinSpeed: 10.00,
-            particleCount: 68,
+            particleCount: 50,
             spawnMaxSpeed: 50,
-            minOpacity: 0.3,
-            spawnOpacity: 0.4,
-            baseColor: Colors.blue,
+            minOpacity: 0.01,
+            spawnOpacity: 0.05,
+            baseColor: Theme.of(context).colorScheme.secondary,
           ),
         ),
         vsync: this,
