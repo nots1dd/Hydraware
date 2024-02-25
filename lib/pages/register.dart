@@ -73,18 +73,14 @@ class _RegisterPageState extends State<RegisterPage> {
           confirmpasswordController.text.trim()) {
         Navigator.pop(context);
         invalidAuth("Passwords do not match");
-        return;
-      }
-      if (passwordController.text.trim() ==
-          confirmpasswordController.text.trim()) {
-        UserCredential userCred = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(
-                email: emailController.text.trim(),
-                password: passwordController.text.trim());
-        FirebaseFirestore.instance
-            .collection('Users')
-            .doc(userCred.user!.email)
-            .set({
+      return;
+    }
+      if (passwordController.text.trim() == confirmpasswordController.text.trim()) { 
+        UserCredential userCred = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text.trim(), 
+        password: passwordController.text.trim()
+        );
+        FirebaseFirestore.instance.collection('Users').doc(userCred.user!.email).set({
           'username': emailController.text.trim().split('@')[0],
           'email': emailController.text.trim(),
           'uid': userCred.user!.uid,
@@ -232,5 +228,5 @@ class _RegisterPageState extends State<RegisterPage> {
         )),
       ),
     );
-  }
+}
 }

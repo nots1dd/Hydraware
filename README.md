@@ -1,6 +1,6 @@
 # Hydraware
 
-<img src="assets/images/icon.png" alt="Logo" width="220" height="170">
+<img src="assets/images/icon_alt.png" alt="Logo" width="200" height="200">
 
 A cross-platform solution toward a more hydro-knolwedgable world.
 
@@ -9,13 +9,14 @@ A cross-platform solution toward a more hydro-knolwedgable world.
 - Effortless access of important announcements through push notifications
 - Build a gap between water suppliers and the populace
 - Give users an understanding of the water network in their area (includes STP, water processing so on)
+Hydraware bridges the gap between water networks and the public, promoting transparency and responsible water use. Imagine understanding your water's journey from source to treatment, participating in discussions about sustainable practices, and receiving alerts about potential outages – all within a single, user-friendly app.
 
 
 ## Stack Required
 - Flutter 3.16
 - Dart
 - Firebase
-- OpenLayers (Map)
+- OpenStreetMaps
 - Gemini API
 
 ## Initial Survey and Product Feasibility Research
