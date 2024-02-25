@@ -1,6 +1,6 @@
 # Hydraware
 
-<img src="assets/images/icon_alt.png" alt="Logo" width="220" height="170">
+<img src="assets/images/icon_alt.png" alt="Logo" width="200" height="200">
 
 A cross-platform solution toward a more hydro-knolwedgable world.
 
