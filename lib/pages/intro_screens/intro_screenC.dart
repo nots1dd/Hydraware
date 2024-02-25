@@ -10,7 +10,7 @@ class ScreenC extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/Designer(1).jpeg'),
+              image: AssetImage('assets/images/Designer_1.jpeg'),
               fit: BoxFit.cover, // Adjust as needed
             ),
           ),
