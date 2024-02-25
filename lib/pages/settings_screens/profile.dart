@@ -19,7 +19,6 @@ class _ProfileState extends State<Profile> {
 
   final usersCollection = FirebaseFirestore.instance.collection("Users");
 
-
   void prompt(String message) {
     showDialog(
       context: context,
@@ -100,15 +99,14 @@ class _ProfileState extends State<Profile> {
             ));
   }
 
-  void signInCheck () {
-  for (UserInfo userinfo in user.providerData) {
-    if (userinfo.providerId == 'password') {
-      editField();
+  void signInCheck() {
+    for (UserInfo userinfo in user.providerData) {
+      if (userinfo.providerId == 'password') {
+        editField();
+      } else {
+        prompt('Editing username with Google SignIn coming soon!');
+      }
     }
-    else {
-      prompt('Editing username with Google SignIn coming soon!');
-    }
-  }
   }
 
   @override
@@ -116,24 +114,23 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text(
-            'Profile Settings',
-            style: TextStyle(color: Colors.blueAccent, fontFamily: 'Cera Pro'),
-            textAlign: TextAlign.left,
-          ),
-          actions: [
-            IconButton(
+            automaticallyImplyLeading: false,
+            title: Text(
+              'Profile Settings',
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.surface,
+                  fontFamily: 'Cera Pro'),
+              textAlign: TextAlign.left,
+            ),
+            leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
               },
               icon: Icon(
                 Icons.arrow_back,
-                color: Theme.of(context).colorScheme.tertiary,
+                color: Theme.of(context).colorScheme.surface,
               ),
-            )
-          ],
-        ),
+            )),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Center(
@@ -142,14 +139,14 @@ class _ProfileState extends State<Profile> {
                   const SizedBox(height: 30),
                   Container(
                     decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.secondary,
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     padding: const EdgeInsets.all(20),
                     child: Icon(
                       Icons.person,
                       size: 50,
-                      color: Theme.of(context).colorScheme.tertiary,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -168,9 +165,8 @@ class _ProfileState extends State<Profile> {
                           return Center(
                               child: Text('No data found! ${snapshot.error}',
                                   style: TextStyle(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .tertiary,
+                                      color:
+                                          Theme.of(context).colorScheme.surface,
                                       fontFamily: 'Cera Pro',
                                       fontSize: 20)));
                         }
@@ -181,7 +177,7 @@ class _ProfileState extends State<Profile> {
                               width: 300,
                               padding: const EdgeInsets.all(15),
                               decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.secondary,
+                                color: Theme.of(context).colorScheme.surface,
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Row(
@@ -192,7 +188,7 @@ class _ProfileState extends State<Profile> {
                                       style: TextStyle(
                                           color: Theme.of(context)
                                               .colorScheme
-                                              .tertiary,
+                                              .primary,
                                           fontFamily: 'Cera Pro',
                                           fontSize: 20)),
                                   const SizedBox(width: 20),
@@ -200,9 +196,8 @@ class _ProfileState extends State<Profile> {
                                     onPressed: signInCheck,
                                     icon: Icon(
                                       Icons.edit,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .tertiary,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                     ),
                                   ),
                                 ],
@@ -211,8 +206,9 @@ class _ProfileState extends State<Profile> {
                             const SizedBox(height: 10),
                             Text('Email: ${userData['email']}',
                                 style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.tertiary,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onBackground,
                                     fontFamily: 'Cera Pro',
                                     fontSize: 20)),
                             const SizedBox(height: 10),

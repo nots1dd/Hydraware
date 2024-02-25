@@ -23,19 +23,20 @@ class _ChatTextFieldState extends State<ChatTextField> {
               hintStyle: const TextStyle(fontFamily: 'Cera Pro'),
               enabledBorder: OutlineInputBorder(
                 borderSide:
-                    BorderSide(color: Theme.of(context).colorScheme.primary),
+                    BorderSide(color: Theme.of(context).colorScheme.onSurface),
                 borderRadius: BorderRadius.circular(15),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red.shade300),
+                borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.primary, width: 2.6),
                 borderRadius: BorderRadius.circular(15),
               ),
-              fillColor: Theme.of(context).colorScheme.secondary,
+              // fillColor: Theme.of(context).colorScheme.secondary,
               filled: true,
               suffixIcon: GestureDetector(
                 onTap: widget.submit,
                 child: Icon(Icons.send,
-                    color: Theme.of(context).colorScheme.tertiary),
+                    color: Theme.of(context).colorScheme.primary),
               ),
             ),
           ),

@@ -8,34 +8,40 @@ class PrivacyPolicy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text(
-            'Privacy Policy',
-            style: TextStyle(color: Colors.blueAccent, fontFamily: 'Cera Pro'),
-            textAlign: TextAlign.left,
-          ),
-          actions: [
-            IconButton(
+            automaticallyImplyLeading: false,
+            title: Text(
+              'Privacy Policy',
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.background,
+                  fontFamily: 'Cera Pro'),
+              textAlign: TextAlign.left,
+            ),
+            leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
               },
               icon: Icon(
                 Icons.arrow_back,
-                color: Theme.of(context).colorScheme.tertiary,
+                color: Theme.of(context).colorScheme.background,
               ),
-            )
-          ],
-        ),
+            )),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Center(
-              child: Column(
-                children: [
-                  const SizedBox(height: 30),
-                  Text(privacyPolicy,
-                      style: const TextStyle(
-                          fontSize: 13, fontWeight: FontWeight.bold)),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 30),
+                    Text(privacyPolicy,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontFamily: 'Cera Pro',
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                        )),
+                  ],
+                ),
               ),
             ),
           ),

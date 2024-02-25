@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:hydraware/components/button.dart';
 import 'package:hydraware/components/textfield.dart';
 import 'package:hydraware/pages/search_screens/posts/posts_db.dart';
 import 'package:profanity_filter/profanity_filter.dart';
@@ -86,11 +87,14 @@ class _PostScreenState extends State<PostScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title:  Text('Post',style: TextStyle(fontFamily: 'Cera Pro',color: Theme.of(context).colorScheme.tertiary),),
-        actions: [
-          const SizedBox(width: 20),
-          KeyboardDismissOnTap(
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Post',
+            style: TextStyle(
+                fontFamily: 'Cera Pro',
+                color: Theme.of(context).colorScheme.background),
+          ),
+          leading: KeyboardDismissOnTap(
             dismissOnCapturedTaps: true,
             child: IconButton(
               onPressed: () async {
@@ -100,37 +104,26 @@ class _PostScreenState extends State<PostScreen> {
               },
               icon: Icon(
                 Icons.arrow_back,
-                color: Theme.of(context).colorScheme.tertiary,
+                color: Theme.of(context).colorScheme.background,
               ),
             ),
-          )
+          )),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(height: 20),
+          MyTextField(
+              controller: contentController,
+              hintText: 'Enter your issue!',
+              obscureText: false),
+          const SizedBox(height: 20),
+          MyTextField(
+              controller: areaController,
+              hintText: 'Enter your area!',
+              obscureText: false),
+          const SizedBox(height: 20),
+          MyButton(onTap: postMessage, text: 'Post')
         ],
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            const SizedBox(height: 20),
-            MyTextField(
-                controller: contentController,
-                hintText: 'Enter your issue!',
-                obscureText: false),
-            const SizedBox(height: 20),
-            MyTextField(
-                controller: areaController,
-                hintText: 'Enter your area!',
-                obscureText: false),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: postMessage,
-              child: Text(
-                'Post',
-                style: TextStyle(
-                    fontFamily: 'Cera Pro',
-                    color: Theme.of(context).colorScheme.tertiary),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

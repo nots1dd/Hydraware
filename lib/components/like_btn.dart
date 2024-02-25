@@ -10,13 +10,13 @@ class LikeBtn extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: isVoted
-          ? const Icon(
+          ? Icon(
               Icons.favorite,
-              color: Colors.red,
+              color: Theme.of(context).colorScheme.primary,
             )
-          : const Icon(
+          : Icon(
               Icons.favorite_border,
-              color: Colors.red,
+              color: Theme.of(context).colorScheme.primary,
             ),
     );
   }

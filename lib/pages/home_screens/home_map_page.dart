@@ -86,7 +86,10 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
               await controller.currentLocation();
             },
             backgroundColor: Theme.of(context).colorScheme.background,
-            child: Icon(Icons.my_location, color: Theme.of(context).colorScheme.primary,),
+            child: Icon(
+              Icons.my_location,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ),
           const SizedBox(height: 15),
           FloatingActionButton(
@@ -94,7 +97,10 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
               await controller.zoomIn();
             },
             backgroundColor: Theme.of(context).colorScheme.background,
-            child: Icon(Icons.add, color: Theme.of(context).colorScheme.primary,),
+            child: Icon(
+              Icons.add,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ),
           const SizedBox(height: 15),
           FloatingActionButton(
@@ -102,7 +108,10 @@ class MapAppState extends State<MapApp> with AutomaticKeepAliveClientMixin {
               await controller.zoomOut();
             },
             backgroundColor: Theme.of(context).colorScheme.background,
-            child: Icon(Icons.remove, color: Theme.of(context).colorScheme.primary,),
+            child: Icon(
+              Icons.remove,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           )
         ],
       ),

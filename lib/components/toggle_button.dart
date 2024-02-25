@@ -13,7 +13,7 @@ class _ToggleButtonState extends State<ToggleButton> {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         onPressed: () {
           Navigator.pushNamed(context, widget.dir);
         },
