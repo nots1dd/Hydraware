@@ -59,6 +59,22 @@ https://forms.gle/HoFUQtE2LMUAtfDD9
 - SOS feature that will provide with immediate helpline numbers (like the locality's hydrological commision or freshwater maintainer) in case of great distress
 - Future ambitions of the app like ML integration to show the hydro-map of the locality to much more!
 
+<table>
+  <tr>
+    <td><img src="assets/images/screenshots/ss1.jpeg" alt="Screenshot 1"></td>
+    <td><img src="assets/images/screenshots/ss2.jpeg" alt="Screenshot 2"></td>
+    <td><img src="assets/images/screenshots/ss3.jpeg" alt="Screenshot 3"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td><img src="assets/images/screenshots/ss4.jpeg" alt="Screenshot 4"></td>
+    <td><img src="assets/images/screenshots/ss5.jpeg" alt="Screenshot 5"></td>
+  </tr>
+</table>
+
+
 ## Installation
 ### Prerequisites:
 - Git
