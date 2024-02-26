@@ -10,7 +10,8 @@ class HelplineScreen extends StatefulWidget {
 
 class _HelplineScreenState extends State<HelplineScreen> {
   final TextEditingController searchController = TextEditingController();
-  List<int> helplineNumbers = [2345678901, 1234567890]; // Add your helpline numbers here
+  List<int> helplineNumbers = [01124361672 , 01123715919]; // Add your helpline numbers here
+  List<String> helplineNames = ["Department of Drinking Water and Sanitation","Department of Water Resouces"];
   List<int> filteredNumbers = [];
 
   @override
@@ -66,8 +67,9 @@ class _HelplineScreenState extends State<HelplineScreen> {
             itemCount: helplineNumbers.length,
             itemBuilder: (BuildContext context, int index) {
               final number = helplineNumbers[index];
+              final name = helplineNames[index];
               final shouldShow = searchController.text.isEmpty || number.toString().contains(searchController.text);
-              return shouldShow ? HelpLineTile(phoneNumber: number) : const SizedBox.shrink();
+              return shouldShow ? HelpLineTile(phoneNumber: number, helpline:name) : const SizedBox.shrink();
           },
           ),
         ],
