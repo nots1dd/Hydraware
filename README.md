@@ -2,6 +2,11 @@
 
 <img src="assets/images/icon_alt.png" alt="Logo" width="200" height="200">
 
+
+<a href="https://www.youtube.com/watch?v=bOwJnVndX2Y">
+    <img src="https://img.shields.io/badge/Youtube-red?style=for-the-badge&logo=Youtube&logoColor=white" alt="Youtube Badge"/>
+  </a>
+
 A cross-platform solution toward a more hydro-knolwedgable world.
 
 ## Aim
