@@ -89,8 +89,9 @@ https://forms.gle/HoFUQtE2LMUAtfDD9
 
 1. Clone this repository `https://github.com/nots1dd/Hydraware.git` into your Text-Editor (like VS Code) with the command ```git clone https://github.com/nots1dd/Hydraware.git```
 2. Upon cloning, ensure all dependencies are taken care for by `flutter pub get` and assets are all in your local machine.
-3. Now run ```flutter run doctor``` to check if everything is fine.
-4. If everything is sorted till now, just hit the run button in your Text-Editor, or just ```flutter run```
+3. Add a `.env` file in the main directory and set `GEMINI_API_KEY_2` as your gemini api token, which you can get from [google's AI studio](https://aistudio.google.com/) using your google account.
+4. Now run ```flutter run doctor``` to check if everything is fine.
+5. If everything is sorted till now, just hit the run button in your Text-Editor, or just ```flutter run```
 
 ## Contribution Guide
 Although the application is still not fully completed yet, you can contribute to Hydraware by:
